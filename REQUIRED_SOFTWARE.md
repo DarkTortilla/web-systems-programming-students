@@ -4,17 +4,18 @@ Install the following tools before beginning the course:
 
 ## Required
 
-- Node.js, current LTS release (includes npm; pnpm is an optional alternative).
-- Git.
-- Visual Studio Code or another source-code editor.
-- MongoDB and MongoDB Compass.
-- An SQL database server such as PostgreSQL or MariaDB.
-- A GitHub account for remote repositories and collaboration.
-- Docker.
+- [Node.js](https://nodejs.org/en/download), current LTS release (includes npm; [pnpm](https://pnpm.io/installation) is an optional alternative).
+- [Git](https://git-scm.com/downloads).
+- [Visual Studio Code](https://code.visualstudio.com/Download) or another source-code editor.
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community) and [MongoDB Compass](https://www.mongodb.com/try/download/compass).
+- An SQL database server such as [PostgreSQL](https://www.postgresql.org/download/) or [MariaDB](https://mariadb.org/download/).
+- A [GitHub account](https://github.com/signup) for remote repositories and collaboration.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
 ## Recommended
 
-- Postman or Insomnia for testing HTTP APIs.
+- [Postman](https://www.postman.com/downloads/) or Insomnia for testing HTTP APIs.
+- [DataGrip](https://www.jetbrains.com/datagrip/download/) or [DBeaver Community](https://dbeaver.io/download/) for managing SQL databases.
 - A VPS (only if you want to create your portfolio).
 
 ## Recommended Extensions for VS Code
@@ -25,6 +26,8 @@ Install the following tools before beginning the course:
 - Pretty TypeScript Errors.
 - Markdown Preview Mermaid Support.
 - Tailwind CSS IntelliSense.
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker).
+- [Spanish - Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish).
 - MongoDB for VS Code if you do not want to install MongoDB Compass.
 
 ## Verification
