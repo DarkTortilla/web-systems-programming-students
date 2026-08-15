@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+
+header{
+    color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*flex-direction: permite modificar el eje principal y secundario */
+    padding: 10px 35px;
+    
+}
+
+
+
+.main-navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    a{
+        text-decoration: none;
+        color: #555;
+    }
+}
+
+#search-form{
+    input{
+        border: none;
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+}

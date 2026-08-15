@@ -1,3 +1,36 @@
-header {
-  background-color: aqua;
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  background-color: #202940;
+  padding: 10px 30px;
+  ul{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+  }
+}
+
+.logo{
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  span{color: darkkhaki;}
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+
+/*
+header  ul{
+
+}
+*/
