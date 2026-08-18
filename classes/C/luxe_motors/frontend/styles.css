@@ -71,6 +71,38 @@ a{
 
 }
 
+.brands {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  h2{
+    font-size: 32px;
+  }
+}
+
+.brand-card {
+  background-color: #fff;
+  border: 1px solid #bbb;
+  padding: 25px;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.brands-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+
 /*
 header  ul{
 
