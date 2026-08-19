@@ -103,6 +103,33 @@ a{
   list-style: none;
 }
 
+.luxe-footer{
+  background-color: #202940;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 45px;
+  color: #ddd;
+}
+.footer-nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li{
+      margin-bottom:2px ;
+    }
+  }
+}
+.social-list{
+  list-style: none;
+  display: flex;
+}
+
 /*
 header  ul{
 

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -48,8 +49,58 @@ header {
   padding: 0px 40px;
   background-color: #55555555;
   color: #fff;
-  .banner-title{
+  .banner-title {
     font-size: 40px;
   }
 }
+.primary-btn {
+  background-color: #16234b;
+  width: 150px; 
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+}
 
+.primary-btn:hover{
+  transform: scale(1.2);
+}
+
+.products-container{
+  padding: 10px 25px;
+}
+
+.title{
+  color: #16234b;
+  font-size: 32px;
+}
+
+.products-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-card{
+
+  height: 275px;
+  width: 200px;
+  border: 1px solid #555;
+  border-radius: 2px;
+  
+  img{
+    background-color: #555;
+    height: 190px;
+    width: 100%;
+  }
+  strong{
+    padding: 0px 10px;
+  }
+  p{
+    font-weight: bold;
+    color: #C92C5B;
+    font-size: 20px;
+    padding: 0px 10px;
+  }
+
+}

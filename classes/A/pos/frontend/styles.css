@@ -45,15 +45,16 @@ header {
 }
 .products-view {
   width: 70%;
-  padding: 15px;
+  padding: 15px 0;
+  height: 100vh;
 }
 
-.sidebar {
-  width: 30%;
-}
+
 
 .search-form {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 90%;
+  height: 10%;
   margin: auto;
   input {
     width: 100%;
@@ -77,6 +78,101 @@ header {
   justify-content: space-between;
   border: 1px solid #aaa;
   border-radius: 5px;
-  margin: 30px 20px;
+  margin: 30px 0px;
   padding: 15px 25px;
+  height: 80%;
+}
+
+.product-card{
+  text-align: center;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 10px;
+  height: 150px;
+  width: 160px;
+  p{
+    font-size: 16px;
+  }
+  strong{
+    color: #007979;
+  }
+  img{
+    width: 90%;
+    height: 75px;
+    background-color: #aaa;
+    object-fit: cover;
+  }
+}
+.sidebar {
+  width: 30%;
+  height: 100vh;
+}
+
+.cart-list{
+ display: flex;
+ flex-direction: column;
+ height: 80%;
+ background-color: #e1e1e1;
+ text-align: center;
+ border: 1px solid  #ddd;
+ width: 90%;
+ margin: 10px auto;
+ border-radius: 5px;
+ span{
+  font-size: xx-small;
+ }
+}
+.pay-section{
+  display: flex;
+  flex-direction: column;
+  height: auto;  
+}
+.total{
+  border-top: 1px solid #aaa;  
+  padding: 5px 20px;
+}
+
+.btn-primary{
+  padding: 20px 15px;
+  background-color: #9f5b34;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 80%;
+  margin: auto;
+
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 10%;
+}
+.page{
+  background-color: #007979;
+  border-radius: 5px;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn{
+  border: none;
+  font-weight: bold;
+  height: 45px;
+  width: 75px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: background-color 0.5s;
+}
+.btn:hover{
+  background-color: #aaa;
 }
