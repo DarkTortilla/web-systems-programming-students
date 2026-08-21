@@ -10,7 +10,7 @@ header {
   justify-content: space-between;
   align-items: center;
   /*flex-direction: permite modificar el eje principal y secundario */
-  padding: 10px 35px;
+  padding: 16px 40px;
 }
 
 .main-navigation ul {
@@ -35,7 +35,7 @@ header {
   background-image: url("./images/UAA2.jpg"); /*coloca una imagen de fondo*/
   background-size: cover; /*modifica el tamaño*/
   background-position: center; /*modifica la posicion*/
-  height: 70vh;
+  height: 50vh;
 
   display: flex;
   justify-content: left;
@@ -45,7 +45,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 55%;
   height: 100%;
   padding: 0px 40px;
   background-color: #55555555;
@@ -56,8 +56,8 @@ header {
 }
 .primary-btn {
   background-color: #16234b;
-  width: 150px; 
-  padding: 10px 0;
+  width: 160px;
+  padding: 12px 0;
   text-align: center;
   color: #fff;
   text-decoration: none;
@@ -68,7 +68,7 @@ header {
 }
 
 .products-container{
-  padding: 10px 25px;
+  padding: 24px 40px;
 }
 
 .title{
@@ -84,8 +84,8 @@ header {
 
 .product-card{
 
-  height: 275px;
-  width: 200px;
+  height: 290px;
+  width: 23%;
   border: 1px solid #555;
   border-radius: 2px;
   
@@ -107,13 +107,13 @@ header {
 
 .layout{
   display: flex;
-  height: 30%;
+  height: auto;
 }
 .container{
-  width: 85%;
+  width: 80%;
 }
 #left-aside{
-  width: 15%;
+  width: 20%;
 }
 .navigation-menu{
   color: #555;
@@ -128,7 +128,7 @@ header {
 }
 
 .menu-item{
-  padding: 20px;
+  padding: 12px 16px;
   transition: background-color 0.5s;
   a{
     text-decoration: none;
@@ -145,12 +145,12 @@ header {
 
 
 footer{
-  margin-top: 15px;
+  margin-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top:5px solid #16234b;
-  padding: 5px 10px;
+  padding: 12px 24px;
   ul{
     display: flex;
     justify-content: space-between;
