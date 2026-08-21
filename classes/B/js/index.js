@@ -13,3 +13,6 @@ let id2 = Symbol('id');
 none = undefined;
 person = null;
 
+const item = localStorage.length;
+
+let query = null;
