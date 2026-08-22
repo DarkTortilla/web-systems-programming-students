@@ -45,7 +45,7 @@ person.name = "Luis";
 person.birthDay = "12/12/65";
 console.log(person.name);
 
-//Object.freeze(person);
+// Object.freeze(person);
 
 let num2 = num;
 console.log(num, num2);
@@ -58,7 +58,7 @@ console.log(person, person2);
 person2.name = "Antonio";
 console.log(person, person2);
 
-/// Como generar una copia;
+// Como generar una copia;
 
 const person3 = { ...person };
 
