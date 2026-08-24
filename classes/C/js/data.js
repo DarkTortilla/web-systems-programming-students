@@ -24,6 +24,7 @@ const products = [
     img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80",
   },
   {
+    id:4,
     name: "Cámara instantánea",
     price: 2199,
     desc: "Cámara instantánea con impresión de fotografías al momento.",
@@ -32,3 +33,24 @@ const products = [
 ];
 
 module.exports = products;
+
+//busqueda
+for (let index = 0; index < products.length; index++) {
+  if (products[index].price===2199 ) {
+    return products[index];
+  }
+}
+
+const product = products.find(product => product.price===2199 );
+
+
+// modificar un arreglo de objetos
+
+let auxProducts =[];
+for (let index = 0; index < products.length; index++) {
+  auxProducts.push({id:index, ...products[index]});
+}
+
+products.map((product,index) => {
+  return {id: index, ...product }
+} )
