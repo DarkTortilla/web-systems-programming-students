@@ -92,10 +92,7 @@ export function JavaScriptDataTypesPresentation() {
               forma general, se dividen en valores primitivos y valores compuestos, como objetos
               y arreglos.
             </p>
-            <p>
-              Es un lenguaje de tipado dinámico: una variable puede almacenar valores de
-              diferentes tipos durante la ejecución.
-            </p>
+
           </div>
           <Code language="javascript" lineNumbers>{dynamicTypingExample}</Code>
         </div>
