@@ -92,7 +92,7 @@ const numbers = [1,2,5,6,51,35];
 const doble = numbers.map(n => n*2); // [2,4,10, 102, 70];
 
 
-const user ={
+const user = {
     user:'',
     email:'',
     password:''
