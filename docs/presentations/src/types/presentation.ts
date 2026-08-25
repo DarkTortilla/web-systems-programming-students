@@ -15,7 +15,7 @@ export type HeroIcon = ForwardRefExoticComponent<
 export type PresentationCategory = 'presentations' | 'js'
 
 export interface PresentationDefinition {
-  id: 'client-server' | 'html' | 'css' | 'js-data-types'
+  id: 'client-server' | 'html' | 'css' | 'js-data-types' | 'js-control-structures'
   category: PresentationCategory
   title: string
   shortTitle: string

@@ -31,6 +31,12 @@ const JavaScriptDataTypesPresentation = lazy(() =>
   })),
 )
 
+const JavaScriptControlStructuresPresentation = lazy(() =>
+  import('../presentations/JavaScriptControlStructuresPresentation').then((module) => ({
+    default: module.JavaScriptControlStructuresPresentation,
+  })),
+)
+
 export const presentationDefinitions = [
   {
     id: 'client-server',
@@ -75,5 +81,15 @@ export const presentationDefinitions = [
     path: '/presentaciones/js-tipos-de-datos',
     icon: CommandLineIcon,
     Component: JavaScriptDataTypesPresentation,
+  },
+  {
+    id: 'js-control-structures',
+    category: 'js',
+    title: 'Estructuras de control',
+    shortTitle: 'Estructuras de control',
+    description: 'Estructuras de control en JS: sintaxis y funcionamiento.',
+    path: '/presentaciones/js-estructuras-control',
+    icon: CommandLineIcon,
+    Component: JavaScriptControlStructuresPresentation,
   },
 ] as const satisfies readonly PresentationDefinition[]
