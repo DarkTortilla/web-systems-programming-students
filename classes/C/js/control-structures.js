@@ -3,7 +3,7 @@
 let data = true;
 
 if (data) {
-    
+    console.log('...')
 }
 
 let num = 32;
