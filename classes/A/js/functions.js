@@ -56,6 +56,30 @@ function main(){
 }
 main();
 
-{
-  /* <input type='text' placeholder="ingrese el precio del producto"></input> */
+//Funcion para encontrar el iva, debe multiplicar un precio por 0.16;
+
+const calculateIva = (price) => price*0.16;
+
+//callback
+
+const findTaxes = (product, callback) =>{
+  if (!product) {
+    return 'error';
+  }
+  if(typeof callback !=='function'){
+    return 'error callback must be a function';
+  }
+  return callback(product.price);
+};
+
+const product = {
+  name: 'phone',
+  price:123465
 }
+
+findTaxes(product, calculateIva);
+findTaxes(product, p=>p*0.28);
+findTaxes(product, p=> p>5000? p*0.2: p*0.1 );
+// {
+//   /* <input type='text' placeholder="ingrese el precio del producto"></input> */
+// }

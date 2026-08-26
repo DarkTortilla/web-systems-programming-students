@@ -49,12 +49,36 @@ function main(){
 main();
 
 
-array.filter((a) => a > 4);
+array.filter(
+  (a) => a > 4
+);
 
-array.filter(filter);
-function filter(a) {
+
+
+array.filter(filterFn);
+
+function filterFn(a) {
   return a > 4;
 }
+
+//Callback
+const findIva = (price) => price * 0.16; 
+
+//callback hell
+const calculateTaxes=(product, callback) => {
+  if (!product) {
+    return 'error';
+  }
+  return callback(product.price);
+}
+const product = {
+  name:'',
+  price: 5000
+}
+
+console.log(calculateTaxes(product, findIva));
+
+
 
 // '12'
 /*
