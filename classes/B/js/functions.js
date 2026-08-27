@@ -51,12 +51,24 @@ const array =[12,36,5,6,89,2];
 
 array.filter(n=>n>50);
 
-// Callback
 
-const callback=(a)=>{
-    console.log(a);
+const calculateIva = (price) => price*1.16;
+
+const findTax=(product, callback)=>{
+    if (!product) {
+        return 'error';
+    }
+    if(typeof callback !=='function'){
+        return 'callback must be a function';
+    }
+    callback(product.price);
 }
 
-const computeIva = (a, callback )=>{
-    callback(a);
+const product = {
+    id:1,
+    name: '',
+    price:15,
 }
+
+findTax(product, calculateIva);
+findTax(product, p=>p>5000? p*1.2 : 1.1 );
