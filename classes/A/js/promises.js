@@ -92,7 +92,7 @@ const findConfByUserId = (id) => {
 //promise hell
 findUserById(3)
   .then((u) => {
-    findConfByUserId(u.id)
+    findConfByUserId(/*u.id*/ 3)
       .then((conf) => {
         console.log(u);
         console.log(conf);
@@ -102,12 +102,20 @@ findUserById(3)
   .catch((err) => console.error(err))
   .finally();
 
-  if (condition) {
-    if (condition) {
-        if (condition) {
-            if (condition) {
-                
-            }
-        }
-    }
-  }
+//Promise all
+const list = [12,13,564,1161,656,312,184,96];
+// const num1 = list[0];
+
+const [num1, num2] = list;
+
+// const [user, setUser] = useState({});
+
+Promise.all([findUserById(3), findConfByUserId(3)])
+  .then(([user, conf]) => {
+    console.log(user,conf);
+    // const [user, conf] = array;
+    // const user = array[0];
+    // const conf = array[1];
+  })
+  .catch((err) => console.error(err));
+

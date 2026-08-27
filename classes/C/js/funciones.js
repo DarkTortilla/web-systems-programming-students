@@ -77,6 +77,7 @@ const product = {
 }
 
 console.log(calculateTaxes(product, findIva));
+calculateTaxes(product, (p)=>p>5000?p*0.2 : 0.16);
 
 
 
