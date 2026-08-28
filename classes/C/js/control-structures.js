@@ -1,3 +1,6 @@
+const products = require("./data/products");
+const users = require("./data/users");
+
 //IF 
 
 let data = true;
@@ -65,15 +68,22 @@ function getUserById(id) {
 
 user ='Juan' && isActive;
 
-let users = [];
-
-
 for (let index = 0; index < array.length; index++) {
     const element = array[index];
     
 }
 
 
-const products = required('./data.js');
+let productByLoop = null;
 
-products
+for (let index = 0; index < products.length; index++) {
+    if (products[index].price === 2199) {
+        productByLoop = products[index];
+        break;
+    }
+}
+
+const product = products.find((product) => product.price === 2199);
+const updatedProducts = products.map((product, index) => {
+    return { ...product, id: product.id ?? index + 1 };
+});

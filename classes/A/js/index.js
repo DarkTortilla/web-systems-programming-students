@@ -1,3 +1,5 @@
+const products = require("./data/products");
+
 //primitivos
 let name_ = "Frank";
 const num = 5;
@@ -91,11 +93,4 @@ peopleCpy[0].name = "Antonio";
 console.log(people, peopleCpy);
 // copia de la estructura
 peopleCpy = structuredClone(people);
-
-const products = [
-  { name: "", price: 0, img: "" },
-  { name: "", price: 0, img: "" },
-  { name: "", price: 0, img: "" },
-  { name: "", price: 0, img: "" },1
-];
 

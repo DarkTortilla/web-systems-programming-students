@@ -1,4 +1,6 @@
-const { products } = require("./data");
+const products = require("./data/products");
+const users = require("./data/users");
+const userConf = require("./data/userconf");
 
 const findProduct = new Promise((resolve, reject) => {
   const product = products.find((product) => product.price === 1299);
@@ -23,34 +25,6 @@ findProduct
     console.log("finally");
   });
 
-const users = [
-  {
-    id: 3,
-    name: "",
-    lastName: "",
-  },
-];
-const usersConf = [
-  {
-    id: 1,
-    name: "",
-    mode: "dark",
-    userId: 3,
-  },
-  {
-    id: 2,
-    name: "",
-    mode: "dark",
-    userId: 17,
-  },
-  {
-    id: 3,
-    name: "",
-    mode: "dark",
-    userId: 4,
-  },
-];
-
 const findUserById = (id) => {
   return new Promise((resolve, reject) => {
     const user = users.find((u) => u.id === id);
@@ -64,7 +38,7 @@ const findUserById = (id) => {
 
 const findConfByUserId = (userId) => {
   return new Promise((resolve, reject) => {
-    const conf = usersConf.find((conf) => userId === conf.userId);
+    const conf = userConf.find((conf) => userId === conf.userId);
     conf ? resolve(conf) : reject("conf not found");
     return;
   });

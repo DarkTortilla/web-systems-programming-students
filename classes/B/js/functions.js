@@ -36,13 +36,13 @@ const isAdmin = (u) => u.role === 'admin';
 isAdmin(user);
 
 (()=>{
-    dataBase.connect();
-    server.start();
+    //dataBase.connect();
+    //server.start();
 })();
 
 function main(){
-    dataBase.connect();
-    server.start();
+    //dataBase.connect();
+    //server.start();
 };
 
 main();
