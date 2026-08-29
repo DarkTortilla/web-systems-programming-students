@@ -30,5 +30,4 @@ const products = [
     desc: "Cámara instantánea con impresión de fotografías al momento.",
   },
 ];
-
 module.exports = products;
