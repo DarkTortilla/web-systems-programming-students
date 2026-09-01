@@ -1,0 +1,34 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    background-color: #DFE3E2;
+}
+
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+  background-color: #fff;
+  border: 1px solid #008585;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 33%;
+  gap: 15px;
+}
+
+.input-item{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
