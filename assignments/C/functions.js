@@ -39,3 +39,14 @@ const crearCatalogoConDescuento = (limite, porcentaje) => {
 // function calcularTotalPedido(pedido){
 
 // }
+
+
+const procesarProductos = (products, criterio, formateador)=>{
+  
+  
+  if (typeof criterio === 'function') {
+    
+  }
+
+
+}

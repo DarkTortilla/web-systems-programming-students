@@ -9,7 +9,7 @@ const userConf = [
     id: 2,
     name: "Configuración de Luis",
     mode: "light",
-    userId: 17,
+    userId: 3,
   },
   {
     id: 3,
