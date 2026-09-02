@@ -1,17 +1,16 @@
-*{
-    font-family: 'Courier New', Courier, monospace;
+* {
+  font-family: "Courier New", Courier, monospace;
 }
 
-body{
-    background-color: #DFE3E2;
+body {
+  background-color: #dfe3e2;
 }
 
-
-.form-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .login-form {
@@ -23,12 +22,36 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 33%;
+  width: 350px;
+  height: 400px;
   gap: 15px;
 }
 
-.input-item{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+.input-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  input {
+    background-color: #ebebeb;
+    border: none;
+    width: 100%;
+    height: 28px;
+  }
+}
+.btn-primary{
+    background-color: #008585;
+    color:aqua;
+    width: 100%;
+    border: none;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 3px;
+    
+}
+.support{
+    border-top: 1px solid #aeaeae ;
+    width: 100%;
+    font-size: x-small;
+    text-align: center;
 }
