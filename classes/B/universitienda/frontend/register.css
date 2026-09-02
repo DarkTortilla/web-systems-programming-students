@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #E1E3E4;
+}
+
+
+.register-form{
+    
+}
