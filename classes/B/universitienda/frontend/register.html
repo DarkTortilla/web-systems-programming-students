@@ -4,44 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./register.css">
+    <link rel="stylesheet" href="./register.css" />
   </head>
   <body>
     <p>holi</p>
     <form action="" class="register-form">
-      <h2>Universitienda</h2>
-      <p>crea tu cuenta para acceder</p>
+      <div class="form-header">
+        <h2>Universitienda</h2>
+        <p>crea tu cuenta para acceder</p>
+      </div>
 
       <div class="form-item">
         <label for="name">Nombre</label>
         <input type="text" id="name" placeholder="El juan" />
       </div>
-      <div>
+      <div class="form-item">
         <label for="last-name">Apellido</label>
         <input type="text" id="last-name" />
       </div>
-      <div>
+      <div class="form-item">
         <label for="phone">phone</label>
         <input type="tel" />
       </div>
-      <div>
+      <div class="form-item">
         <label for="email">email</label>
         <input type="email" />
       </div>
-      <label for="pwd">contraseña</label>
-      <input type="password" />
-      <div>
+      <div class="form-item">
+        <label for="pwd">contraseña</label>
+        <input type="password" />
+      </div>
+
+      <div class="form-item">
         <label for="repeat-pwd">Repetir contraña</label>
         <input type="password" />
       </div>
-      <div>
+      <div class="check-container">
         <label for="check"
           >Acepto los <a href="">Terminos del servicio</a></label
         >
         <input type="checkbox" name="" id="check" />
       </div>
       <button class="btn-primary" type="submit">Registrase</button>
-
       <span>¿Ya tienes cuenta?<a href="">Iniciar sesion</a></span>
     </form>
     <p>adios</p>
