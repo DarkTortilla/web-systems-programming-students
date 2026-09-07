@@ -1,27 +1,27 @@
-//SOLID
+import express from 'express';
+const products = [
+  { id: 1, name: "" },
+  { id: 2, name: "" },
+  { id: 3, name: "" },
+];
 
-import http from 'http';
-const users =[{name: 'A'}, {name:'B'}, {name:'C'}]; 
+const server = express();
 
+server.use(express.json());
 
-const server = http.createServer((req, res)=>{
-    if(req.url ==='/users'){
-
-        res.writeHead(200, 'ok', {"content-type":"application/json"});
-        res.end(JSON.stringify(users));
-    }
-    else if(req.url ==='/home'){
-        res.writeHead(200, 'ok', {"content-type":"text/html"});
-        res.end(`<h1>Home page</h1>
-                <p> welcome ${users[0].name} </p> 
-            `) //SSR
-    }else{
-        res.statusCode=404;
-        res.end('not found');
-    }
+server.get('/products', (req, res)=>{
+    res.json(products);
+});
+server.post('/products',(req, res)=>{
+    const id = req.body.id;
+    const name = req.body.name;
+    const product = {id, name}
+    products.push(product);
+    res.status(201).json({product,message:"ok" })
 });
 
-server.listen(3000,()=>{
-    console.log('server is running on port: 3000');
-} )
 
+
+server.listen(3000, ()=>{
+    console.log('server is running on port 3000');
+})
