@@ -14,10 +14,19 @@ const server = express();
 
 server.use(express.json());
 
-server.get("/products", (req, res) => {
+const requireAuth = (req, res, next) => {
+  const apiKey = req.get("x-api-key");
+  if (!apiKey || apiKey !== process.env.API_KEY) {
+    res.status(401).json({ message: "unauthorized" });
+    return;
+  }
+  next();
+};
+
+server.get("/products", requireAuth, (req, res) => {
   res.status(200).json(products);
 });
-server.post("/products", (req, res) => {
+server.post("/products", requireAuth, (req, res) => {
   const name = req.body.name;
   const id = req.body.id;
   const product = {
@@ -28,7 +37,7 @@ server.post("/products", (req, res) => {
   res.status(201).json({ product, message: "ok" });
 });
 
-server.put('/products/:id', (req, res)=>{
+server.put('/products/:id', requireAuth, (req, res)=>{
   const id = +req.params.id;
   const name = req.body.name;
   console.log(id,1);
