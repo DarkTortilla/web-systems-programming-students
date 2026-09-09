@@ -1,4 +1,9 @@
 import express from 'express';
+import dotenv from 'dotenv'
+dotenv.config();
+
+const port = process.env.PORT;
+
 const products = [
   { id: 1, name: "" },
   { id: 2, name: "" },
@@ -20,8 +25,25 @@ server.post('/products',(req, res)=>{
     res.status(201).json({product,message:"ok" })
 });
 
+server.put('/products/:id', (req, res)=>{
+    const id= +req.params.id;
+    const name = req.body.name;
+    console.log(id);
+    const product = products.find(p=>p.id===id);
+    if (!product) {
+        res.status(404).json({message:'product not found'});
+        return;
+    }
+    if (!name) {
+        res.status(400).json({message:'name is required'});
+        return;
+    }
+    product.name = name;
+    res.status(200).json({message:'product updated'});
+})
 
 
-server.listen(3000, ()=>{
-    console.log('server is running on port 3000');
+
+server.listen(port, ()=>{
+    console.log(`server is running on port: ${port}`);
 })
