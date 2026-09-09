@@ -37,11 +37,10 @@ server.put('/products/:id', (req, res)=>{
    }
 
    product.name=name;
-
    res.status(200).json({message:"product updated"});
    
 });
 
 server.listen(port, ()=>{
     console.log(`server running on port: ${port}`);
-})
+});
