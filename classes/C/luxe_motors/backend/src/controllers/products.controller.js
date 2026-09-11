@@ -1,3 +1,8 @@
+import jwt from 'jsonwebtoken';
+import jose from 'jose';
+
+//SOLID
+
 const products = [
   { id: 1, name: "" },
   { id: 2, name: "" },
@@ -5,9 +10,14 @@ const products = [
 ];
 
 export class ProductController {
-  constructor() {}
+  jwt=null;
+  
+  constructor(opt) {
+    this.jwt = opt.jwt 
+  }
 
   getProducts(req, res) {
+    jwt.sign();
     res.status(200).json(products);
   }
 

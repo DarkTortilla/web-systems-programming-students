@@ -1,5 +1,7 @@
 import { Router } from "express";
-import { ProductController } from "../controllers/products.controller.js";
+import { ProductController, getProducts } from "../controllers/products.controller.js";
+import jwt from "jsonwebtoken"
+import jose from "jose";
 
 const router = Router();
 const productController = new ProductController();
