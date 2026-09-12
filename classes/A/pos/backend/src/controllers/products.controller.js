@@ -1,3 +1,4 @@
+
 const products = [
   { id: 1, name: "" },
   { id: 2, name: "" },
@@ -5,7 +6,9 @@ const products = [
 ];
 
 export class ProductController {
-  constructor() {}
+  constructor() {
+
+  }
 
   getProducts(req, res) {
     res.json(products);

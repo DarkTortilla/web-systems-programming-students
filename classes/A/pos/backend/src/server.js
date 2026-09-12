@@ -1,8 +1,20 @@
-import express from 'express';
-import routes from './routes/index.js';
+import express from "express";
+export class Server {
+  port;
+  server;
+  routes;
+  dataFormat;
+  constructor(options) {
+    this.server = express();
+    this.port = options.port;
+    this.routes = options.routes;
+  }
 
-const server = express();
-server.use(express.json());
-server.use('/api', routes);
-
-export default server;
+  start = () => {
+    server.use(express.json());
+    server.use("/api", this.routes);
+    server.listen(this.port, () => {
+      console.log(`server running on port: ${this.port}`);
+    });
+  };
+}
