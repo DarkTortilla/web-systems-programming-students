@@ -1,4 +1,4 @@
-
+import  type { Request, Response } from "express";
 
 //SOLID
 
@@ -11,11 +11,11 @@ const products = [
 export class ProductController {
   
 
-  getProducts(req, res) {
+  getProducts(_req:Request, res:Response) {
     res.status(200).json(products);
   }
 
-  createProduct(req, res) {
+  createProduct(req:Request, res:Response){
     const name = req.body.name;
     const id = req.body.id;
     const product = {
@@ -26,11 +26,10 @@ export class ProductController {
     res.status(201).json({ product, message: "ok" });
   }
 
-  updateProductById(req, res) {
-    const id = +req.params.id;
+  updateProductById(req:Request, res:Response){
+    const id = + req.params.id!;
     const name = req.body.name;
     const product = products.find((p) => p.id === id);
-
     if (!product) {
       res.status(404).json({ message: "product not found" });
       return;

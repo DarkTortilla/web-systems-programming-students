@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "start": "node ./src/app.js",
-    "dev": "nodemon ./src/app.js",
+    "dev": "npx tsx --watch ./src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "@types/express": "^5.0.6",
     "@types/node": "^26.5.1",
     "nodemon": "^3.1.14",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }
 }

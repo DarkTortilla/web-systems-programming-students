@@ -1,4 +1,4 @@
-import { ProductsController } from "../controllers/products.controller.js";
+import { ProductsController } from "../controllers/products.controller.ts";
 import { Router } from "express";
 
 const router = Router();

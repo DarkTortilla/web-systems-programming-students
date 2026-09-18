@@ -25,10 +25,10 @@
     "exactOptionalPropertyTypes": true,
 
     // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
+   "noImplicitReturns": true,
+   "noImplicitOverride": true,
+   "noUnusedLocals": true,
+   "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
 
@@ -44,6 +44,6 @@
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
   },
-  "include": ["./src/**/*.ts"],
+  "include": ["./src/**/*.ts", "src/routes/index.ts"],
   "exclude": ["./src/**/*.spec.ts", "./src/**/*.test.ts"]
 }

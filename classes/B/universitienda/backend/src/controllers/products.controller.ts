@@ -1,3 +1,4 @@
+import type { Request, Response } from "express";
 const products = [
   { id: 1, name: "" },
   { id: 2, name: "" },
@@ -7,11 +8,11 @@ const products = [
 export class ProductsController {
   constructor() {}
 
-  getProducts(req, res) {
+  getProducts(_req:Request, res:Response) {
     res.json(products);
   }
 
-  createProduct(req, res) {
+  createProduct(req:Request, res:Response) {
     const id = req.body.id;
     const name = req.body.name;
     products.push({ id, name });
@@ -19,8 +20,8 @@ export class ProductsController {
     res.status(201).json({ products, message: "ok" });
   }
 
-  updateProduct(req, res) {
-    const id = Number(req.params.id);
+  updateProduct(req:Request, res:Response) {
+    const id = Number(req.params['id']);
     const name = req.body.name;
     const product = products.find((p) => p.id === id);
     if (!product) {

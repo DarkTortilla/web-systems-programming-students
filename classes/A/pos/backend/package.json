@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
     "start": "node ./src/app.js",
-    "dev": "nodemon ./src/app.js"
+    "dev": "npx tsx --watch ./src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "@types/express": "^5.0.6",
     "@types/node": "^26.5.1",
     "nodemon": "^3.1.14",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }
 }

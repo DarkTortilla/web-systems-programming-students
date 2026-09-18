@@ -1,4 +1,4 @@
-import express, { Router, Express } from "express";
+import express, { Router,type Express } from "express";
 
 type serverOptions = {
   port: number;
