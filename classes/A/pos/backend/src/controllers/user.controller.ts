@@ -23,7 +23,7 @@ const users = [
 // getAllUsers, CreateUser, UpdateUser -PUT, DeleteUser, /users/:id/role -PATCH
 
 export class UserController {
-  public getAllUsers(req: Request, res: Response) {
+  public getAllUsers(_req: Request, res: Response) {
     res.json(users.map((user) => ({ ...user, password: "" })));
   }
 
@@ -56,17 +56,20 @@ export class UserController {
     user.role = newRole;
 
     res.json({message:'user updated'});
+  }
+
+  public deleteUser(req:Request, res:Response){
+    const id = Number(req.params.id);
+    const user = users.findIndex((user) => user.id === id);
+    if (user===-1) {
+      res.status(404).json({ message: "user not found" });
+      return;
+    }
+
+    users.splice(user, 1);
+
+    res.json({message:'user deleted'});
 
   }
 
-  
-
 }
-
-const suma = (a: number, b: number) => {
-  return a + b;
-};
-
-const suma2 = (a: number, b: number) => a + b;
-
-// { } cuerpo de codigo, tambien pueden indicar que es un objeto
