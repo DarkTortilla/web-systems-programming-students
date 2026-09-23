@@ -17,6 +17,7 @@ export class Server {
   }
   
   start() {
+    this.server.use(express.json());
     this.server.use('/api/v1', this.routes);
     this.server.listen(this.port, () => {
       console.log(`server running on port: ${this.port}`);
