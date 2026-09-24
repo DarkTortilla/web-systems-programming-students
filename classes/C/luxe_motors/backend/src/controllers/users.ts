@@ -23,7 +23,7 @@ export class UserController{
         res.json(userResponse);
     }
 
-    getAllUsers(req: Request, res: Response){
+    getAllUsers(_req: Request, res: Response){
         const query='select * from users';
         pool.execute(query)
             .then(result=>{
