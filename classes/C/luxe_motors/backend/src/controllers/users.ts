@@ -1,4 +1,5 @@
 import type { Request, Response } from "express";
+import pool from "../conf/dbConnection.ts";
 
 const users=[{
     id:1,
@@ -9,7 +10,7 @@ const users=[{
     password:'',
     profileImg:'',
 }]
-
+//create user, getall, delete, update
 export class UserController{
 
     getUserById(req: Request, res: Response){
@@ -20,5 +21,20 @@ export class UserController{
         }
         const userResponse = { ...user, password:''};
         res.json(userResponse);
+    }
+
+    getAllUsers(req: Request, res: Response){
+        const query='select * from users';
+        pool.execute(query)
+            .then(result=>{
+                res.status(200).json(result);
+            })
+            .catch(
+                err=>{
+                    console.error(err);
+                    res.status(500).json({message:'internal server error'});
+                }
+            );
+
     }
 }

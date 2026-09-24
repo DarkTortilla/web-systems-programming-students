@@ -1,6 +1,7 @@
 CREATE DATABASE pos;
 
-\connect pos
+--\connect pos postgress
+USE DATABASE pos; --mariadb o mysql
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
