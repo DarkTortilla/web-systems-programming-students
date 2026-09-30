@@ -1,4 +1,6 @@
 import type { Request, Response } from "express";
+import { pool } from "../conf/dbConnection.ts";
+
 const users = [
   {
     id: 1,
@@ -24,7 +26,13 @@ const users = [
 
 export class UserController {
   public getAllUsers(_req: Request, res: Response) {
-    res.json(users.map((user) => ({ ...user, password: "" })));
+
+    pool.execute('select * from users').then(result=>{
+      res.json(result);
+    }).catch(err=>{
+      console.log(err);
+      res.status(500).json({message:'internal server error'});
+    });
   }
 
   public getUserById(req: Request, res: Response) {

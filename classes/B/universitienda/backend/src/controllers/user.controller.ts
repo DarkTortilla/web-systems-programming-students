@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-
+import { pool } from "../conf/dbConnection.ts";
 const users = [
   {
     id: 1,
@@ -27,11 +27,9 @@ const users = [
 export class UserController {
   constructor() {}
   public getUserById(req: Request, res: Response) {
-    // https://store.me.com/api/v1/users/181613513/orders?status=canceled
     const id = Number(req.params["id"]);
 
     const user = users.find((u) => u.id === id);
-    //Javascript object notation
     if (!user) {
       return res.status(404).json({ message: "user not found" });
     }
@@ -40,14 +38,16 @@ export class UserController {
 
   public getAllUsers(_req: Request, res: Response) {
 
-    /**
-     * { limit: 10, page: 1}
-     */
-    // const page = req.query['page'];
-    // const limit = req.query['limit'];
-    // const {page,limit} = req.query;
-
-    res.json(users);
+    pool.execute('select * from users')
+    .then(result=>{
+      //tranformar estos
+      res.json()
+    } )
+    .catch(
+      err=>{
+          //console.log(err);
+        res.status(500).json({message:'internal server error'})
+      }); 
   }
 
   public createUser(req:Request, res: Response) { 
