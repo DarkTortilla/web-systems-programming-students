@@ -22,6 +22,3 @@ export const pool = mysql2.createPool({
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
 });
-
-pool.execute('select * from users');
-pool.execute('delete user where id = 1');
