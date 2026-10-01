@@ -61,10 +61,11 @@ export class UserController {
     try {
       const id = Number(req.params.id);
       const result = await pool.execute(
-        "select id, name, last_name, age,  email, role from users where id = ?",
+        "select id, name, last_name, age, email, role from users where id = ?",
         [id],
       );
-      const user = result[0] as unknown as User[];
+      //DTO
+      const user = result[0] as User[];
       if (!user[0]) {
         res.status(404).json({ message: "user not found" });
         return;
@@ -105,17 +106,20 @@ export class UserController {
     res.json({ message: "user updated" });
   }
 
-  public deleteUser(req: Request, res: Response) {
+  public async deleteUser(req: Request, res: Response) {
+    try{
     const id = Number(req.params.id);
-    const user = users.findIndex((user) => user.id === id);
-    if (user === -1) {
-      res.status(404).json({ message: "user not found" });
-      return;
+    const [result, _] = await pool.execute('delete from users where id = ?', [id]);
+    const { affectedRows } = result as any;
+    if(affectedRows===0){
+      return res.status(404).json({message: 'user not found'});
     }
 
-    users.splice(user, 1);
-
     res.json({ message: "user deleted" });
+    }catch(err){
+      console.log(err);
+      res.status(500).json({message:'internal server error'});
+    }
   }
 }
 
