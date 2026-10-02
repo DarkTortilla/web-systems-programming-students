@@ -9,7 +9,8 @@ interface IUser extends Model{
     age: number,
     email:string,
     password:string,
-    role: 'admin' | 'customer' 
+    role: 'admin' | 'customer'
+    isActive: boolean
 }
 
 
@@ -45,7 +46,14 @@ const User = sequelize.define<IUser>('User',
             type:DataTypes.ENUM('customer','admin'),
             allowNull: false,
             defaultValue: 'customer'  
+        },
+        isAcitve: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
         }
+    },
+    {
+        timestamps: true
     }
 );
 
