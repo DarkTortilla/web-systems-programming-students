@@ -1,4 +1,4 @@
-import { UserController } from "../controllers/user.controller.ts";
+import { UserController } from "../controllers/user.controller.mysql2.ts";
 import { Router } from "express";
 
 const router = Router();
