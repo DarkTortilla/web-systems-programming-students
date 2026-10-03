@@ -1,8 +1,26 @@
 import sequelize from "../conf/sequelizeConnection.ts";
 import { DataTypes, Model } from "sequelize";
 
+// class MyClass<T>{
+//     public suma(a:T,b:T){
+//         return a+b;
+//     }
+// }
 
-const User = sequelize.define('User', {
+// const stringClass = new MyClass<string>();
+// const numberClass = new MyClass<number>();
+interface IUser extends Model{
+    id:number;
+    name:string;
+    lastName: string;
+    email:string;
+    password:string;
+    age:number;
+    role: 'admin' | 'costumer';
+    isActive:boolean
+}
+
+const User = sequelize.define<IUser>('User', {
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -37,6 +55,6 @@ const User = sequelize.define('User', {
         type:DataTypes.BOOLEAN,
         allowNull: false
     }
-});
+}, {timestamps: true});
 
 export default User;
