@@ -1,129 +1,80 @@
-import type { Request, Response } from "express";
+﻿import type { Request, Response } from "express";
+import type { ResultSetHeader, RowDataPacket } from "mysql2";
 import { pool } from "../conf/dbConnection.ts";
 
-const users = [
-  {
-    id: 1,
-    name: "",
-    lastName: "",
-    email: "",
-    role: "",
-    password: "",
-    profileImg: "",
-  },
-  {
-    id: 2,
-    name: "",
-    lastName: "",
-    email: "",
-    role: "",
-    password: "",
-    profileImg: "",
-  },
-];
-
-type User = {
-  id: number;
-  name: string;
-  last_name: string;
-  age: number;
-  email: string;
-  role: string;
-  password?: string;
-};
-
-// getAllUsers, CreateUser, UpdateUser -PUT, DeleteUser, /users/:id/role -PATCH
-
 export class UserController {
-  public getAllUsers(_req: Request, res: Response) {
-    pool
-      .execute(
-        `select id,
-        name,
-        last_name,
-        age,
-        email,
-        role from users`,
-      )
-      .then((result) => {
-        const users = result[0];
-        res.json(users);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({ message: "internal server error" });
-      });
-  }
-
-  // console.log(5); setTimeout(()=>console.log('hola'), 0), console.log('holi');i
-
-  public async getUserById(req: Request, res: Response) {
+  public async getAllUsers(_req: Request, res: Response) {
     try {
-      const id = Number(req.params.id);
-      const result = await pool.execute(
-        "select id, name, last_name, age, email, role from users where id = ?",
-        [id],
+      const [users] = await pool.execute(
+        "select id, name, last_name, age, email, role from users",
       );
-      //DTO
-      const user = result[0] as User[];
-      if (!user[0]) {
-        res.status(404).json({ message: "user not found" });
-        return;
-      }
-      res.json(user[0]);
-    } catch (err) {
-      //TODO: implement global error handler
+      res.json(users);
+    } catch {
       res.status(500).json({ message: "internal server error" });
     }
   }
 
-  public createUser(req: Request, res: Response) {
-    const { name, lastName, email, role, password, profileImg } = req.body;
-    const newId = users.length > 0 ? users[users.length - 1]?.id! + 1 : 1;
-    const user = {
-      id: newId,
-      name,
-      lastName,
-      email,
-      role,
-      password,
-      profileImg,
-    };
-    users.push(user);
-    res.status(201).json({ message: "user created" });
-  }
-  //   /users/:id/role -PATCH
-  public updateRole(req: Request, res: Response) {
-    const id = Number(req.params.id);
-    const user = users.find((user) => user.id === id);
-    if (!user) {
-      res.status(404).json({ message: "user not found" });
-      return;
+  public async getUserById(req: Request, res: Response) {
+    try {
+      const id = Number(req.params.id);
+      const [users] = await pool.execute<RowDataPacket[]>(
+        "select id, name, last_name, age, email, role from users where id = ?",
+        [id],
+      );
+      if (!users[0]) {
+        res.status(404).json({ message: "user not found" });
+        return;
+      }
+      res.json(users[0]);
+    } catch {
+      res.status(500).json({ message: "internal server error" });
     }
-    const newRole = req.body.role;
-    user.role = newRole;
+  }
 
-    res.json({ message: "user updated" });
+  public async createUser(req: Request, res: Response) {
+    try {
+      const { name, lastName, age, email, role, password } = req.body;
+      await pool.execute(
+        "insert into users (name, last_name, age, email, role, password) values (?, ?, ?, ?, ?, ?)",
+        [name, lastName, age, email, role, password],
+      );
+      res.status(201).json({ message: "user created" });
+    } catch {
+      res.status(500).json({ message: "internal server error" });
+    }
+  }
+
+  public async updateRole(req: Request, res: Response) {
+    try {
+      const id = Number(req.params.id);
+      const [result] = await pool.execute<ResultSetHeader>(
+        "update users set role = ? where id = ?",
+        [req.body.role, id],
+      );
+      if (result.affectedRows === 0) {
+        res.status(404).json({ message: "user not found" });
+        return;
+      }
+      res.json({ message: "user updated" });
+    } catch {
+      res.status(500).json({ message: "internal server error" });
+    }
   }
 
   public async deleteUser(req: Request, res: Response) {
-    try{
-    const id = Number(req.params.id);
-    const [result, _] = await pool.execute('delete from users where id = ?', [id]);
-    const { affectedRows } = result as any;
-    if(affectedRows===0){
-      return res.status(404).json({message: 'user not found'});
-    }
-
-    res.json({ message: "user deleted" });
-    }catch(err){
-      console.log(err);
-      res.status(500).json({message:'internal server error'});
+    try {
+      const id = Number(req.params.id);
+      const [result] = await pool.execute<ResultSetHeader>(
+        "delete from users where id = ?",
+        [id],
+      );
+      if (result.affectedRows === 0) {
+        res.status(404).json({ message: "user not found" });
+        return;
+      }
+      res.json({ message: "user deleted" });
+    } catch {
+      res.status(500).json({ message: "internal server error" });
     }
   }
 }
-
-
-// delete from users where id = ?
-// insert into users(name,..., password) values (?, ?, ?) , [];
-// update users set name=?, ...,  password=? where id =?  
