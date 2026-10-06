@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { User } from "../models/index.ts";
+import { CreateUserDTO } from "../dto/users/CreateUserDTO.ts";
 
 export class UserController {
   constructor() {}
@@ -26,12 +27,14 @@ export class UserController {
   }
   public async createUser(req: Request, res: Response) {
     try {
-      const { name, lastName, email, age, password } = req.body;
-
-      const user = await User.create({ name, lastName, email, age, password });
+      // express-validator
+      // DTO 
+      const dto = CreateUserDTO.create(req.body);
+      const user = await User.create({dto});
 
       res.status(201).json({ massage: "user created", user });
     } catch (error) {
+      
       res.status(500).json({ message: "internal server error" });
     }
   }

@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { User } from "../models/index.ts";
+import { CreateUserDTO } from "../dtos/users/CreateUserDto.ts";
 
 export class UserController {
   constructor() {}
@@ -15,12 +16,7 @@ export class UserController {
 
   public async getUserById(req: Request, res: Response) {
     try {
-      /* https://www.uaa.mx/courses/12
-           params: 
-           body: 
-           query: 
-           headers:;  
-        */
+
 
       const id = Number(req.params.id);
       const user = await User.findByPk(id);
@@ -35,19 +31,8 @@ export class UserController {
 
   public async createUser(req: Request, res: Response) {
     try {
-      const { name, lastName, email, password, age, role } = req.body;
-    //   const user = new User();
-    //   user.name = name;
-     
-    //   await user.save();
-      const user = await User.create({
-        name,
-        lastName,
-        email,
-        password,
-        age,
-        role,
-      });
+      const dto = CreateUserDTO.create(req.body);
+      const user = await User.create({dto});
       res.status(201).json({message:'user created', user});
     } catch (error) {
         // TODO: global error handler

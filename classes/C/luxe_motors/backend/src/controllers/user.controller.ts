@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { User } from "../models/index.ts";
+import { CreateUserDTO } from "../dto/user/CreateUserDto.ts";
 
 export class UserController {
   constructor() {}
@@ -30,15 +31,19 @@ export class UserController {
   }
   public async createUser(req: Request, res: Response) {
     try {
-      const { name, lastName, age, email, password } = req.body;
-      const user = await User.create({ name, lastName, age, email, password });
+
+      const dto = CreateUserDTO.create(req.body)
+      const user = await User.create({...dto});
       //   const user = new User();
       //   user.age= age;
+
+      
 
       await user.save();
       res.status(201).json({ message: "user created", user });
     } catch (err) {
-      console.log(err);
+      
+      
       res.status(500).json({ message: "internal server error" });
     }
   }
@@ -52,6 +57,7 @@ export class UserController {
       if (!user) {
         return res.status(404).json({ message: "user not found" });
       }
+      
       user.name = name;
       user.lastName = lastName;
       user.age = age;
