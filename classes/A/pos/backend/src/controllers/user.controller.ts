@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import { User } from "../models/index.ts";
 import { CreateUserDTO } from "../dtos/users/CreateUserDto.ts";
+import { ResponseUserDto } from "../dtos/users/ResponseUserDto.ts";
 
 export class UserController {
   constructor() {}
@@ -8,7 +9,9 @@ export class UserController {
   public async getAllUsers(_req: Request, res: Response) {
     try {
       const users = await User.findAll();
-      res.json(users);
+      // const numbers =  [1,2,3,4,5,6];
+      // const odds = numbers.map(n=>n*2);
+      res.json(users.map(u => ResponseUserDto.create(u)));
     } catch (error) {
       res.status(500).json({ message: "internal server error" });
     }
@@ -16,14 +19,15 @@ export class UserController {
 
   public async getUserById(req: Request, res: Response) {
     try {
-
-
       const id = Number(req.params.id);
+      
       const user = await User.findByPk(id);
       if (!user) {
         return res.status(404).json({ message: "user not found" });
       }
-      res.json(user);
+      const dto = ResponseUserDto.create(user);
+      res.json(dto);
+      //data transfer object 
     } catch (error) {
       res.status(500).json({ message: "internal server error" });
     }

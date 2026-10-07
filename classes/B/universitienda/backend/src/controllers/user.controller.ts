@@ -1,14 +1,14 @@
 import type { Request, Response } from "express";
 import { User } from "../models/index.ts";
 import { CreateUserDTO } from "../dto/users/CreateUserDTO.ts";
+import { UserResponseDTO } from "../dto/users/UserResponseDTO.ts";
 
 export class UserController {
   constructor() {}
-
   public async getAllUsers(_req: Request, res: Response) {
     try {
       const users = await User.findAll();
-      res.json(users);
+      res.json( users.map(u => UserResponseDTO.create(u)));
     } catch (error) {
       res.status(500).json({ message: "internal server error" });
     }
@@ -20,15 +20,14 @@ export class UserController {
       if (!user) {
         return res.status(404).json({ message: "user not found" });
       }
-      res.json(user);
+      const userResponse = UserResponseDTO.create(user)
+      res.json(userResponse);
     } catch (error) {
       res.status(500).json({ message: "internal server error" });
     }
   }
   public async createUser(req: Request, res: Response) {
     try {
-      // express-validator
-      // DTO 
       const dto = CreateUserDTO.create(req.body);
       const user = await User.create({dto});
 
