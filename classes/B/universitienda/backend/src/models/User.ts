@@ -44,7 +44,7 @@ const User = sequelize.define<IUser>('User', {
         allowNull: false,
     },
     role:{
-     type:DataTypes.ENUM('admin','costumer'),
+     type: DataTypes.ENUM('admin','costumer'),
      defaultValue: 'costumer'
     },
     age:{
@@ -53,7 +53,8 @@ const User = sequelize.define<IUser>('User', {
     },
     isActive: {
         type:DataTypes.BOOLEAN,
-        allowNull: false
+        allowNull: false,
+        defaultValue: false
     }
 }, {timestamps: true});
 

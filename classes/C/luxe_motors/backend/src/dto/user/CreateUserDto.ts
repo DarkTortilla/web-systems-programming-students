@@ -1,5 +1,3 @@
-import type { ucs2 } from "node:punycode";
-
 export class CreateUserDTO{
     private name:string;
     private lastName:string;

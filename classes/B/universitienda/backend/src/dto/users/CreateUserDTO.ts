@@ -30,10 +30,10 @@ export class CreateUserDTO{
         if(!age || typeof age !== 'number' || age<0 || age> 100){
             throw new Error('invalid format for age');
         }
-        if (!email || typeof email !=='string' || /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(email) ) {
+        if (!email || typeof email !=='string' || !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(email) ) {
             throw new Error('invalid format for email');
         }
-        if (!password || typeof password !=='string' || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(password)) {
+        if (!password || typeof password !=='string' || !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(password)) {
             throw new Error('password is required');
         }
 

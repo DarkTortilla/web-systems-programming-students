@@ -29,11 +29,11 @@ export class UserController {
   public async createUser(req: Request, res: Response) {
     try {
       const dto = CreateUserDTO.create(req.body);
-      const user = await User.create({dto});
+      const user = await User.create({...dto});
 
       res.status(201).json({ massage: "user created", user });
     } catch (error) {
-      
+      console.log(error);
       res.status(500).json({ message: "internal server error" });
     }
   }

@@ -13,6 +13,7 @@ export class UserController {
       // const odds = numbers.map(n=>n*2);
       res.json(users.map(u => ResponseUserDto.create(u)));
     } catch (error) {
+      console.log(error);
       res.status(500).json({ message: "internal server error" });
     }
   }
@@ -32,14 +33,15 @@ export class UserController {
       res.status(500).json({ message: "internal server error" });
     }
   }
-
+//vitest supertest 
   public async createUser(req: Request, res: Response) {
     try {
       const dto = CreateUserDTO.create(req.body);
-      const user = await User.create({dto});
+      const user = await User.create({...dto});
       res.status(201).json({message:'user created', user});
     } catch (error) {
         // TODO: global error handler
+        console.log(error)
         res.status(500).json({message: 'internal server error'});
     }
   }

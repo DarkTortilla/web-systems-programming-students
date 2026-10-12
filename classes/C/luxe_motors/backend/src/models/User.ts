@@ -9,8 +9,8 @@ interface IUser extends Model{
     age: number,
     email:string,
     password:string,
-    role: 'admin' | 'customer'
-    isActive: boolean
+    role: 'admin' | 'customer';
+    isActive: boolean;
 }
 
 

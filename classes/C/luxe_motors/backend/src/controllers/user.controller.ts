@@ -1,15 +1,16 @@
 import type { Request, Response } from "express";
 import { User } from "../models/index.ts";
 import { CreateUserDTO } from "../dto/user/CreateUserDto.ts";
+import { UserResponseDTO } from "../dto/user/UserResponseDTO.ts";
 
 export class UserController {
   constructor() {}
   //TODO: implement pagination
-  //express-validator, DTO
+  //express-validator, DTO DATA TRANSFER OBJECT 
   public async getAllUsers(_req: Request, res: Response) {
     try {
       const users = await User.findAll();
-      res.json(users);
+      res.json(users.map(u=>UserResponseDTO.create(u)));
     } catch (err) {
       console.log(err);
       res.status(500).json({ message: "internal server error" });
@@ -19,11 +20,11 @@ export class UserController {
     try {
       const id = Number(req.params.id);
       const user = await User.findByPk(id);
-
       if (!user) {
         return res.status(404).json({ message: "user not found" });
       }
-      res.json(user);
+      const dto = UserResponseDTO.create(user);
+      res.json(dto);
     } catch (err) {
       console.log(err);
       res.status(500).json({ message: "internal server error" });
@@ -34,10 +35,6 @@ export class UserController {
 
       const dto = CreateUserDTO.create(req.body)
       const user = await User.create({...dto});
-      //   const user = new User();
-      //   user.age= age;
-
-      
 
       await user.save();
       res.status(201).json({ message: "user created", user });

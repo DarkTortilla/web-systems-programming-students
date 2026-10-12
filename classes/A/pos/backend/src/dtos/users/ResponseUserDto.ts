@@ -1,5 +1,5 @@
 export class ResponseUserDto{
-    
+   
     private constructor(
         private fullName:string,
         private id:number,
@@ -23,13 +23,15 @@ export class ResponseUserDto{
          }
          if(!email || typeof email !=='string' || 
             //name@domain
-            /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(email)){
+            !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(email)){
             throw new Error('email is required');
          }
        
          return new ResponseUserDto(`${name} ${lastName}`, id, email);
 
     }
+    //DATA TRANSFER OBJECT
+    //EXPRESS-VALIDATOR
 
 
 
