@@ -1,11 +1,19 @@
-import { ProductsController } from "../controllers/products.controller.ts";
 import { Router } from "express";
+import { ProductController } from "../controllers/products.controller.ts";
 
-const router = Router();
-const productsController = new ProductsController();
 
-router.get('/', productsController.getProducts);
-router.post('/', productsController.createProduct);
-router.put('/:id', productsController.updateProduct);
+export class ProductRoutes {
+    static get router(): Router {
+        const router = Router();
+        const productController = new ProductController();
 
-export default router;
+        router.get('/', productController.getProducts);
+        router.get('/:id', productController.getProductById);
+        router.post('/', productController.createProduct);
+        router.put('/:id', productController.updateProductById);
+        router.delete('/:id', productController.deleteProductById);
+
+        return router;
+    }
+}
+
