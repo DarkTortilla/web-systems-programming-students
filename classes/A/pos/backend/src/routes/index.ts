@@ -1,9 +1,13 @@
 import { Router } from "express";
-import productsRoutes from './products.routes.ts';
-import userRoutes from './user.routes.ts';
-const router = Router();
+import {ProductRoutes} from "./products.routes.ts";
+import {UserRoutes} from "./user.routes.ts";
 
-router.use('/v1/products', productsRoutes);
-router.use('/v1/users', userRoutes);
+export class AppRoutes {
+    static get router(): Router {
+        const router = Router();
 
-export default router;
+        router.use("/v1/products", ProductRoutes.router);
+        router.use("/v1/users", UserRoutes.router);
+        return router;
+    }
+}

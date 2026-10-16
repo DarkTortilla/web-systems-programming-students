@@ -9,8 +9,6 @@ export class UserController {
   public async getAllUsers(_req: Request, res: Response) {
     try {
       const users = await User.findAll();
-      // const numbers =  [1,2,3,4,5,6];
-      // const odds = numbers.map(n=>n*2);
       res.json(users.map(u => ResponseUserDto.create(u)));
     } catch (error) {
       console.log(error);
