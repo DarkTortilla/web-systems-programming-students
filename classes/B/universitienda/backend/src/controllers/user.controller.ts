@@ -1,76 +1,86 @@
 import type { Request, Response } from "express";
 import { User } from "../models/index.ts";
-import { CreateUserDTO } from "../dto/users/CreateUserDTO.ts";
-import { UserResponseDTO } from "../dto/users/UserResponseDTO.ts";
+import { CreateUserDto } from "../dtos/users/CreateUserDto.ts";
+import { UserResponseDto } from "../dtos/users/UserResponseDto.ts";
 
 export class UserController {
   constructor() {}
+
   public async getAllUsers(_req: Request, res: Response) {
     try {
       const users = await User.findAll();
-      res.json( users.map(u => UserResponseDTO.create(u)));
-    } catch (error) {
-      res.status(500).json({ message: "internal server error" });
-    }
-  }
-  public async getUserById(req: Request, res: Response) {
-    try {
-      const id = Number(req.params.id);
-      const user = await User.findByPk(id);
-      if (!user) {
-        return res.status(404).json({ message: "user not found" });
-      }
-      const userResponse = UserResponseDTO.create(user)
-      res.json(userResponse);
-    } catch (error) {
-      res.status(500).json({ message: "internal server error" });
-    }
-  }
-  public async createUser(req: Request, res: Response) {
-    try {
-      const dto = CreateUserDTO.create(req.body);
-      const user = await User.create({...dto});
-
-      res.status(201).json({ massage: "user created", user });
+      res.json(users.map(u => UserResponseDto.create(u)));
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "internal server error" });
     }
   }
-  public async updateUser(req: Request, res: Response) {
+
+  public async getUserById(req: Request, res: Response) {
     try {
       const id = Number(req.params.id);
-      const { name, lastName, email, age } = req.body;
+      
       const user = await User.findByPk(id);
       if (!user) {
         return res.status(404).json({ message: "user not found" });
       }
-
-      user.age = age;
-      user.email = email;
-      user.name = name;
-      user.lastName = lastName;
-
-      await user.save();
-      res.status(200).json({ massage: "user updated", user });
+      const dto = UserResponseDto.create(user);
+      res.json(dto);
+      //data transfer object 
     } catch (error) {
-      //TODO: global error handler
       res.status(500).json({ message: "internal server error" });
     }
   }
-  public async deleteUser(req: Request, res: Response) {
+//vitest supertest 
+  public async createUser(req: Request, res: Response) {
+    try {
+      const dto = CreateUserDto.create(req.body);
+      const user = await User.create({...dto});
+      res.status(201).json({message:'user created', user});
+    } catch (error) {
+        // TODO: global error handler
+        console.log(error)
+        res.status(500).json({message: 'internal server error'});
+    }
+  }
+
+   public async deleteUser(req: Request, res: Response) {
     try {
       const id = Number(req.params.id);
       const user = await User.findByPk(id);
       if (!user) {
         return res.status(404).json({ message: "user not found" });
       }
-
     //   await user.destroy();
-      user.isActive= false;
+      user.isActive = false;
       await user.save();
-      res.json({massage:'user deleted', user});
+      res.json({message:'user deleted'});
+    } catch (error) {
+      res.status(500).json({ message: "internal server error" });
+    }
+  }
 
+  // DTO
+  // express-validator
+  public async updateUser(req: Request, res: Response) {
+    try {
+      const id = Number(req.params.id);
+      const { name, lastName, email, password, age, role } = req.body;
+      const user = await User.findByPk(id);
+      if (!user) {
+        return res.status(404).json({ message: "user not found" });
+      }
+
+      user.name = name;
+      user.lastName = lastName;
+      user.email = email;
+      user.password = password;
+      user.age = age;
+      user.role = role;
+
+      await user.save();
+      res.json({message:'user updated', user});
+    
     } catch (error) {
       res.status(500).json({ message: "internal server error" });
     }

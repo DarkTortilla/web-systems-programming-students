@@ -1,4 +1,4 @@
-export class UserResponseDTO{
+export class UserResponseDto{
 
     private constructor(
         private fullName:string,
@@ -24,6 +24,6 @@ export class UserResponseDTO{
         if (!email || typeof email !=='string' || !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(email) ) {
             throw new Error('invalid format for email');
         }
-        return new UserResponseDTO( `${name} ${lastName}` ,email, id);
+        return new UserResponseDto( `${name} ${lastName}` ,email, id);
     }
 }

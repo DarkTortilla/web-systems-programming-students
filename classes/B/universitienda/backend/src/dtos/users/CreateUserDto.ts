@@ -1,4 +1,4 @@
-export class CreateUserDTO{
+export class CreateUserDto{
     private name:string; 
     private lastName:string;
     private email:string; 
@@ -38,6 +38,6 @@ export class CreateUserDTO{
         }
 
 
-        return new CreateUserDTO(name, lastName, email, age, password);
+        return new CreateUserDto(name, lastName, email, age, password);
     }
 }
