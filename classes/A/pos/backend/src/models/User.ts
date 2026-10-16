@@ -1,5 +1,7 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../conf/sequilize.connection.ts";
+import sequelizeConnection from "../conf/sequelize.connection.ts";
+
+const sequelize = sequelizeConnection.getSequelize();
 
 interface IUser extends Model {
   id: number;
