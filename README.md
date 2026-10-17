@@ -129,3 +129,7 @@ Este repositorio contiene el material destinado al profesor.
 Consulta [EVALUATION.md](EVALUATION.md) para conocer el esquema inicial de
 evaluación y [REQUIRED_SOFTWARE.md](REQUIRED_SOFTWARE.md) para revisar las
 herramientas requeridas.
+
+Consulta [CLASS_PLAN.md](CLASS_PLAN.md) para la planeación de las clases del
+12 de octubre al 27 de noviembre de 2026, sus prácticas y las herramientas
+necesarias para cada sesión.
