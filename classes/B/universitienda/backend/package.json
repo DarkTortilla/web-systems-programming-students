@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage ",
+    "test:watch": "vitest",
     "start": "node ./src/app.js",
     "dev": "npx tsx --watch ./src/app.ts",
     "build": "npx tsc"
@@ -18,11 +20,13 @@
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
     "mysql2": "^3.24.5",
-    "sequelize": "^6.37.8"
+    "sequelize": "^6.37.8",
+    "vitest": "^5.0.5"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^22.20.2",
+    "@vitest/coverage-v8": "^5.0.5",
     "nodemon": "^3.1.14",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"

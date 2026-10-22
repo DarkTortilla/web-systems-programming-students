@@ -15,7 +15,7 @@ export class Server {
     this.routes = options.routes;
   }
 
-  public start = () => {
+  public start(){
     this.server.use(express.json());
     this.server.use("/api", this.routes);
     this.server.listen(this.port, () => {
