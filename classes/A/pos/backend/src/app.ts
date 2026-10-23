@@ -8,7 +8,7 @@ const port = Number(process.env.PORT);
 
 async function main() {
   try{
-  //await sequelizeConnection.connect();
+  await sequelizeConnection.connect();
   const server = new Server({ port, routes: AppRoutes.router });
   server.start();
 }catch(e){

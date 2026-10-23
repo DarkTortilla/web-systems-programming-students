@@ -7,7 +7,9 @@
     "build": "tsc",
     "start": "node ./src/app.js",
     "dev": "npx tsx --watch ./src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "test:watch": "vitest --watch"
   },
   "keywords": [],
   "author": "",

@@ -2,14 +2,16 @@ import { Server } from '../src/server.ts';
 import sequelizeConnection from '../src/conf/sequelize.connection.ts';
 
 vitest.mock('../src/server.ts');
-vitest.mock('../src/conf/sequelize.connection.ts', () => ({
+vitest.mock('../src/conf/sequelize.connection.ts', 
+  () => ({
   default: {
     connect: vi.fn().mockResolvedValue(undefined),
     getSequelize: vi.fn(() => ({
       define: vi.fn(() => ({})),
     })),
   },
-}))
+})
+)
 describe('app.ts config testing', ()=>{  
     it('should start sever',async ()=>{
         
@@ -24,7 +26,7 @@ describe('app.ts config testing', ()=>{
         });
         expect(Server.prototype.start).toHaveBeenCalledTimes(1);
     });
-})
+});
 
 // npm i vitest supertest
 // npm audit fix --force
