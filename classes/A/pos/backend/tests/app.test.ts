@@ -3,7 +3,7 @@ import sequelizeConnection from '../src/conf/sequelize.connection.ts';
 
 vitest.mock('../src/server.ts');
 vitest.mock('../src/conf/sequelize.connection.ts',()=>({
-    default:{
+    default: {
         getSequelize: vi.fn(()=>({
             define: vi.fn(()=>({}))
         })),

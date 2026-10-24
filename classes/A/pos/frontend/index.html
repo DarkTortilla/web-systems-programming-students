@@ -8,6 +8,7 @@
         background-color: aquamarine;
       }
     </style> -->
+
     <link rel="stylesheet" href="./styles.css">
     <title>Document</title>
   </head>
@@ -28,27 +29,7 @@
         <form action="" class="search-form">
             <input class="form-input" type="search" name="q" placeholder="buscar" required>
         </form>
-        <div class="products-container">
-            <div class="product-card">
-                <img src="" alt="">
-                <p>Producto 1</p>
-                <strong>64$</strong>
-            </div>
-            <div class="product-card">
-                <img src="" alt="">
-                <p>Producto 2</p>
-                <strong>35$</strong>
-            </div>
-            <div class="product-card">
-                <img src="" alt="">
-                <p>Producto 3</p>
-                <strong>24$</strong>
-            </div>
-            <div class="product-card">
-                <img src="" alt="">
-                <p>Producto 4</p>
-                <strong>12$</strong>
-            </div>
+        <div class="products-container" id="products-container">
             
         </div>
         <div class="pagination">
@@ -65,11 +46,14 @@
         <div class="pay-section">
           
             <p class="total">Total: 0.00</p>
-            <button class="btn-primary">
+            <button id="buy-btn" onclick="clickBtn()" class="btn-primary">
               Realizar compra
             </button>
         </div>
       </aside>
     </section>
+    <script src="./app.js">
+      
+    </script>
   </body>
 </html>

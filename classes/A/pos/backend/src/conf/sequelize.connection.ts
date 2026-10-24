@@ -24,6 +24,7 @@ export class SequelizeConnection {
 
   public getSequelize(): Sequelize {
     return this.sequelize;
+    
   }
 
   public async connect(): Promise<void> {

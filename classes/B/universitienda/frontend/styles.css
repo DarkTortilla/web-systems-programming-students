@@ -11,6 +11,8 @@ header {
   align-items: center;
   /*flex-direction: permite modificar el eje principal y secundario */
   padding: 16px 40px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 6px #0001;
 }
 
 .main-navigation ul {
@@ -27,7 +29,15 @@ header {
   input {
     border: none;
     background-color: #ddd;
-    border-radius: 5px;
+    border-radius: 12px;
+    padding: 8px 12px;
+  }
+  button {
+    border: none;
+    border-radius: 12px;
+    padding: 8px 12px;
+    background-color: #16234b;
+    color: #fff;
   }
 }
 
@@ -50,6 +60,7 @@ header {
   padding: 0px 40px;
   background-color: #55555555;
   color: #fff;
+  line-height: 1.5;
   .banner-title {
     font-size: 40px;
   }
@@ -74,6 +85,7 @@ header {
 .title{
   color: #16234b;
   font-size: 32px;
+  letter-spacing: 0.5px;
 }
 
 .products-list{
@@ -86,8 +98,10 @@ header {
 
   height: 290px;
   width: 23%;
-  border: 1px solid #555;
-  border-radius: 2px;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #0002;
   
   img{
     background-color: #555;
@@ -114,6 +128,9 @@ header {
 }
 #left-aside{
   width: 20%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  box-shadow: 2px 0 6px #0001;
 }
 .navigation-menu{
   color: #555;
@@ -149,12 +166,23 @@ footer{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top:5px solid #16234b;
-  padding: 12px 24px;
+  border-top: 1px solid #ddd;
+  border-radius: 16px 16px 0 0;
+  background-color: #f5f6fa;
+  color: #16234b;
+  padding: 20px 32px;
   ul{
     display: flex;
     justify-content: space-between;
-    gap: 5px;
+    gap: 16px;
     list-style: none;
+    a{
+      color: #555;
+      text-decoration: none;
+    }
+    a:hover{
+      color: #16234b;
+      text-decoration: underline;
+    }
   }
 }
