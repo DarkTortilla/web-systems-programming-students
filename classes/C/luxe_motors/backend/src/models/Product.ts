@@ -43,7 +43,7 @@ const Product = sequelize.define<IProduct>(
         },
         imageUrl: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         isActive: {
             type: DataTypes.BOOLEAN,

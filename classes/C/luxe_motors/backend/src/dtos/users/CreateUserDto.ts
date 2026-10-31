@@ -24,7 +24,6 @@ export class CreateUserDTO{
         if (!obj) {
             throw new Error('user cannot be empty');
         }
-
         if (typeof obj !=='object') {
             throw new Error('user must be an object');
         }
@@ -48,9 +47,6 @@ export class CreateUserDTO{
         .test(email) ) {
             throw new Error('email is required');
         }
-
-
-
 
         return new CreateUserDTO(name, lastName, age, email, password);
     }
