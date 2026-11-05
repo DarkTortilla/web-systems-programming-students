@@ -1,0 +1,132 @@
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  background-color: #202940;
+  padding: 10px 30px;
+  ul{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+  }
+}
+
+.logo{
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  span{color: darkkhaki;}
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.main-banner{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-image: url('./images/main_bg.jpg');
+  height: 100vh;
+  background-repeat:repeat;
+  background-size: cover;
+
+
+}
+
+.cta-banner{
+
+  width: 40%;
+  color: #fff;
+  padding-left: 35px;
+  text-align: justify;
+  h1{
+    font-size: 3em;
+  }
+}
+
+.search-form{
+  display: flex;
+  justify-content: space-between;
+  background-color: #20294053;
+  padding: 10px;
+  input{
+    height: 35px;
+    width: 250px;
+    background-color: #202940AA;
+  }
+}
+
+.primary-btn{
+  border: none;
+  background-color: #4B4038;
+  color: #fff;
+  padding: 17px 20px;
+
+}
+
+.brands {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  h2{
+    font-size: 32px;
+  }
+}
+
+.brand-card {
+  background-color: #fff;
+  border: 1px solid #bbb;
+  padding: 25px;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.brands-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.luxe-footer{
+  background-color: #202940;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 45px;
+  color: #ddd;
+}
+.footer-nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li{
+      margin-bottom:2px ;
+    }
+  }
+}
+.social-list{
+  list-style: none;
+  display: flex;
+}
+
