@@ -89,32 +89,34 @@ header {
 }
 
 .products-list{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 .product-card{
-
-  height: 290px;
-  width: 23%;
+  padding-bottom: 12px;
   border: none;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 6px #0002;
   
   img{
+    display: block;
     background-color: #555;
     height: 190px;
     width: 100%;
+    object-fit: cover;
   }
   strong{
-    padding: 0px 10px;
+    display: block;
+    padding: 12px 10px 0;
   }
   p{
     font-weight: bold;
     color: #C92C5B;
     font-size: 20px;
+    margin: 8px 0;
     padding: 0px 10px;
   }
 }
