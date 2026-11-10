@@ -1,5 +1,37 @@
 import './App.css'
 import Button from './components/atoms/Button'
+import ProductContainer from './products/components/ProductContainer'
+
+const products = [
+  {
+    id: 1, 
+    name: "p1", 
+    price: 0, 
+    description: '',
+    stock: 0,
+    imageUrl: "",
+    isActive: true, createdAt: '', updatedAt: ''
+  },
+  {
+    id: 2, 
+    name: "p1", 
+    price: 0,
+    description: '',
+    stock: 0,
+    imageUrl: "",
+    isActive: true, createdAt: '', updatedAt: ''
+  },
+  {
+    id: 3, 
+    name: "p1", 
+    price: 0, 
+    description: '',
+    stock: 0,
+    imageUrl: "",
+    isActive: true, createdAt: '', updatedAt: ''
+  },
+
+];
 
 function App() {
   return (
@@ -7,7 +39,7 @@ function App() {
       <header>
         <form action="" id="search-form">
           <input type="search" required placeholder="buscar" />
-          <Button text='buscar' fnClick={()=>({})}/>
+          <Button text='buscar' fnClick={() => ({})} />
         </form>
         <nav className="main-navigation">
           <ul>
@@ -48,13 +80,12 @@ function App() {
                 officiis dicta odit assumenda ea molestias. Inventore sint dolorem
                 deserunt veniam neque repellat ullam.
               </p>
-              <Button text='Compra ahora' fnClick={()=>({})} />
+              <Button text='Compra ahora' fnClick={() => ({})} />
             </div>
           </section>
           <section className="products-container">
             <h2 className="title">Nuevos ingresos</h2>
-            <div className="products-list" id="products-list">
-            </div>
+            <ProductContainer products={products} />
           </section>
         </main>
       </div>
@@ -71,7 +102,6 @@ function App() {
           <li><a href="">politica y privacidad</a></li>
         </ul>
       </footer>
-
     </>
   )
 }

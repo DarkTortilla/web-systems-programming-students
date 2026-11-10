@@ -1,6 +1,8 @@
 import './App.css'
 import Button from './components/atoms/Button'
 
+const products = [{id: 1, name: '', price:0}, ]
+
 function App() {
   return (
     <>
@@ -26,7 +28,6 @@ function App() {
             accusantium voluptatum consequatur, id adipisci illo iure quibusdam
             facere repellat ea.
           </p>
-
           <form action="" className="search-form">
             <input type="search" required placeholder="buscar" />
             <Button  text='buscar' fnClick={()=>({})}  />
@@ -43,6 +44,17 @@ function App() {
           <li className="brand-card"><img src="" alt="" /><span>chevrolet</span></li>
         </ul>
       </section>
+      <section className='productContainer'>
+        {products.map(
+          p=>(
+            <div className='card' key={p.id} >
+              <p>{p.name}</p>
+              <span>{p.price}</span>
+              <Button text='ver detalle' fnClick={()=>({})}/>
+            </div>
+          ))}
+      </section>
+
       <footer className="luxe-footer">
         <div>
           <p className="logo">LUXE MOTORS</p>
