@@ -6,6 +6,8 @@ import pool from "../conf/dbConnection.ts";
 type User = {};
 //DTO
 export class UserController {
+
+  constructor(){}
   //const findUser = (id:number) => new Promise
 
   async getUserById(req: Request, res: Response) {
@@ -18,9 +20,7 @@ export class UserController {
     // email = 'frank@gmail.com OR 1=1; --'
     // Select * from user where email= frank@gmail.com OR 1=1; -- and password = ${password}
     const id = req.params.id!;
-    const [result, _] = await pool.execute(`select * from users where id=$1`, [
-      id,
-    ]);
+    const [result, _] = await pool.execute(`select * from users where id=$1`, [id]);
     const user = result as unknown as User[];
     if (!user) {
       res.status(404).json({ message: "User not found" });
