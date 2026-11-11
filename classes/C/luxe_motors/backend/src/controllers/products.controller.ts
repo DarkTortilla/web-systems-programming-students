@@ -2,7 +2,7 @@ import  type { Request, Response } from "express";
 import { Product } from "../models/index.ts";
 
 export class ProductController {
-  public async getProducts(_req: Request, res: Response) {
+  public async getProducts(_req:Request, res: Response) {
     try {
       const products = await Product.findAll( );
       res.status(200).json(products);

@@ -2,8 +2,6 @@ import { Model, DataTypes } from "sequelize";
 import sequelizeConnection from "../conf/sequelize.connection.ts";
 
 const sequelize = sequelizeConnection.getSequelize();
-
-
 interface IProduct extends Model {
     id: number,
     name: string,
@@ -12,6 +10,7 @@ interface IProduct extends Model {
     stock: number,
     imageUrl: string,
     //TODO: add categoryId and brandId
+    categoryId: number,
     isActive: boolean,
     createdAt: Date,
     updatedAt: Date
@@ -40,6 +39,10 @@ const Product = sequelize.define<IProduct>(
         stock: {
             type: DataTypes.INTEGER,
             allowNull: false,   
+        },
+        categoryId:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
         imageUrl: {
             type: DataTypes.STRING,

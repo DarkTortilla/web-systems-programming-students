@@ -3,7 +3,7 @@ import {generateSixDigitCode} from '../../../src/utils/generateCode.util.ts';
 describe('generate six codes test', ()=>{
     it('should generate a numeric code with 6 digits', ()=>{
         const code = generateSixDigitCode();
-        expect(code).toBeTypeOf('string');
+        expect(code).toBe('string');
         expect(code).matches(/\d{6}/)
     });
     it('should generate not null code', ()=>{
