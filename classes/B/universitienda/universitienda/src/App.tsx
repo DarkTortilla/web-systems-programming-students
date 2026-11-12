@@ -1,5 +1,6 @@
 import './App.css'
 import Button from './components/atoms/Button'
+import Sidebar from './components/organisms/Sidebar';
 import ProductContainer from './products/components/ProductContainer'
 
 const products = [
@@ -56,20 +57,7 @@ function App() {
         </nav>
       </header>
       <div className="layout">
-        <aside id="left-aside">
-          <nav>
-            <ul className="navigation-menu">
-              <li className="menu-item">
-                <a href="">
-                  Inicio
-                </a>
-              </li>
-              <li className="menu-item"><a href="">Libros</a></li>
-              <li className="menu-item"><a href="">Ropa</a></li>
-              <li className="menu-item"><a href="">Accesorios</a></li>
-            </ul>
-          </nav>
-        </aside>
+        <Sidebar/>
         <main className="container">
           <section className="main-banner">
             <div className="cta-banner">

@@ -4,6 +4,6 @@ export type Product = {
     description:string,
     price: number,
     stock: number,
-    imageUrl: number,
+    imageUrl: string,
     isActive: boolean
 }

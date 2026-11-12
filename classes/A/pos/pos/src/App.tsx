@@ -2,6 +2,7 @@
 import './App.css'
 import Button from './components/atoms/Button'
 import Header from './components/organisms/Header'
+import ProductContainer from './products/components/ProductContainer'
 
 
 function App() {
@@ -14,9 +15,7 @@ function App() {
             <input type="text" />
             <Button text='buscar' fnClick={()=>({})}/>
           </form>
-          <div className="products-container" id="products-container">
-
-          </div>
+          <ProductContainer products={[]} ></ProductContainer>
           <div className="pagination">
             <button className="btn" > prev </button>
             <p className="page">1</p>
