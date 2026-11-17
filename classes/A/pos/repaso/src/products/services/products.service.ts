@@ -1,5 +1,5 @@
 import { client } from "../../conf/axios"
-import type { Product } from "../types/product";
+import type { Product } from "../types/Product";
 
 const getProducts = async (page:number=1, limit:number =10) =>{
     try {
