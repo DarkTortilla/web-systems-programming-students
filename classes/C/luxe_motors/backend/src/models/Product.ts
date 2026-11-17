@@ -10,7 +10,7 @@ interface IProduct extends Model {
     stock: number,
     imageUrl: string,
     //TODO: add categoryId and brandId
-    categoryId: number,
+    // categoryId: number,
     isActive: boolean,
     createdAt: Date,
     updatedAt: Date
@@ -40,10 +40,10 @@ const Product = sequelize.define<IProduct>(
             type: DataTypes.INTEGER,
             allowNull: false,   
         },
-        categoryId:{
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+        // categoryId:{
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        // },
         imageUrl: {
             type: DataTypes.STRING,
             allowNull: true,
