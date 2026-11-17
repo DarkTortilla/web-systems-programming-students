@@ -1,12 +1,10 @@
+import Carrousel from "./components/organisms/Carrousel"
+import Header from "./components/organisms/Header"
+
 function App() {
   return (
     <>
-      <header>
-        <a href="#inicio">Tienda</a>
-        <nav aria-label="Navegación principal">
-          <a href="#productos">Productos</a>
-        </nav>
-      </header>
+      <Header/>
 
       <main id="inicio">
         <section>
@@ -15,17 +13,7 @@ function App() {
           <a href="#productos">Ver productos</a>
         </section>
 
-        <section aria-label="Carrusel de destacados">
-          <h2>Destacados</h2>
-          <article>
-            <h3>Producto destacado 1</h3>
-            <p>Descripción del producto.</p>
-          </article>
-          <article>
-            <h3>Producto destacado 2</h3>
-            <p>Descripción del producto.</p>
-          </article>
-        </section>
+        <Carrousel/>
 
         <section id="productos">
           <h2>Productos</h2>
@@ -33,14 +21,17 @@ function App() {
             <article>
               <h3>Producto 1</h3>
               <p>$100</p>
+              <button>ver detalle</button>
             </article>
             <article>
               <h3>Producto 2</h3>
               <p>$200</p>
+              <button>ver detalle</button>
             </article>
             <article>
               <h3>Producto 3</h3>
               <p>$300</p>
+              <button>ver detalle</button>
             </article>
           </div>
         </section>
