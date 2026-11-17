@@ -1,6 +1,10 @@
+import Banner from "./components/organisms/Banner"
+import ProductContainer from "./products/components/ProductContainer"
+
 function App() {
   return (
     <>
+      {/* header */}
       <header>
         <a href="#inicio">Tienda</a>
         <nav aria-label="Navegación principal">
@@ -9,43 +13,26 @@ function App() {
       </header>
 
       <main id="inicio">
-        <section>
-          <h1>Encuentra tus productos favoritos</h1>
-          <p>Descubre nuestra selección de productos.</p>
-          <a href="#productos">Ver productos</a>
-        </section>
-
+        {/* banner */}
+        <Banner text="" title="" textLink="" link="" />
+        {/* carrousel */}
         <section aria-label="Carrusel de destacados">
           <h2>Destacados</h2>
-          <article>
+          <article >
             <h3>Producto destacado 1</h3>
             <p>Descripción del producto.</p>
+            <a href=""></a>
           </article>
           <article>
             <h3>Producto destacado 2</h3>
             <p>Descripción del producto.</p>
+            <a href=""></a>
           </article>
         </section>
-
-        <section id="productos">
-          <h2>Productos</h2>
-          <div>
-            <article>
-              <h3>Producto 1</h3>
-              <p>$100</p>
-            </article>
-            <article>
-              <h3>Producto 2</h3>
-              <p>$200</p>
-            </article>
-            <article>
-              <h3>Producto 3</h3>
-              <p>$300</p>
-            </article>
-          </div>
-        </section>
+        {/* contendor de productos */}
+        <ProductContainer title="" products={[]} />
       </main>
-
+      {/* footer */}
       <footer>
         <p>© Tienda</p>
       </footer>
