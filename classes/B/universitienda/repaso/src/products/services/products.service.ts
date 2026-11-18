@@ -1,9 +1,9 @@
-import { client } from "../../conf/axios"
+import { client as api } from "../../conf/axios"
 import type { Product } from "../types/Product";
 
-const getProducts = async (page:number=1, limit:number =10) =>{
+export const getProducts = async () =>{
     try {
-       const response = await client.get<Product[]>('/products');
+       const response = await api.get<Product[]>('/products');
        if (response.status !==200) {
          return null;
        }
@@ -13,9 +13,9 @@ const getProducts = async (page:number=1, limit:number =10) =>{
         return null;
     }
 }
-const getProductsbyId = async (id:number) =>{
+export const getProductsbyId = async (id:number) =>{
     try {
-        const response = await client.get<Product>(`/products/${id}`);
+        const response = await api.get<Product>(`/products/${id}`);
         if (response.status !==200) {
          return null;
        }

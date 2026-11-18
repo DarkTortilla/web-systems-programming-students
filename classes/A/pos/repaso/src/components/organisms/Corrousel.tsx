@@ -21,7 +21,6 @@ export default function Carrousel({ title, carrouselItems }: CarrouselProps) {
                     </article>
                 ))}
             </div>
-
         </section>
     )
 }
