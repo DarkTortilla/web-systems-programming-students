@@ -1,5 +1,6 @@
 import Carrousel from "./components/organisms/Carrousel"
 import Header from "./components/organisms/Header"
+import ProductContainer from "./products/components/ProductContainer"
 
 function App() {
   return (
@@ -15,26 +16,7 @@ function App() {
 
         <Carrousel/>
 
-        <section id="productos">
-          <h2>Productos</h2>
-          <div>
-            <article>
-              <h3>Producto 1</h3>
-              <p>$100</p>
-              <button>ver detalle</button>
-            </article>
-            <article>
-              <h3>Producto 2</h3>
-              <p>$200</p>
-              <button>ver detalle</button>
-            </article>
-            <article>
-              <h3>Producto 3</h3>
-              <p>$300</p>
-              <button>ver detalle</button>
-            </article>
-          </div>
-        </section>
+      <ProductContainer  />
       </main>
 
       <footer>

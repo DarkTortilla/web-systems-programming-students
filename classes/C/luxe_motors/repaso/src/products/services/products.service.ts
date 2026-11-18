@@ -1,5 +1,5 @@
 import { client } from "../../conf/axios";
-import type { Product } from "../types/Product";
+import type { PayloadProduct, Product } from "../types/Product";
 
 export const getProducts = async () => {
   try {
@@ -28,5 +28,16 @@ export const getProductById = async (id:number)=>{
         console.log(error)
         return null;
     }
+}
 
+export const createProduct = async (product:PayloadProduct)=>{
+  try {
+    const response = await client.post<{message:string}>('/products', product);
+    if (response.status===201) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
 }
