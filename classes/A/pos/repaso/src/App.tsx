@@ -1,7 +1,27 @@
+import { useEffect, useState } from "react"
 import Banner from "./components/organisms/Banner"
 import ProductContainer from "./products/components/ProductContainer"
+import type { Product } from "./products/types/Product"
+import { getProducts } from "./products/services/products.service";
 
 function App() {
+
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const getData = async () => {
+
+    const products = await getProducts();
+    setLoading(false);
+    products !== null ? setProducts(products) : setProducts([]);
+  }
+  useEffect(() => {
+    setLoading(true);
+    getData();
+  }, [])
+
+
+
+
   return (
     <>
       {/* header */}
@@ -30,7 +50,9 @@ function App() {
           </article>
         </section>
         {/* contendor de productos */}
-        <ProductContainer title="" products={[]} />
+        {loading ?
+         <span>cargando...</span>: 
+         <ProductContainer title="Nuevos" products={products} />}
       </main>
       {/* footer */}
       <footer>

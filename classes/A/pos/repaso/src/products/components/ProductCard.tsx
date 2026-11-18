@@ -9,7 +9,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <article>
             <h3>{product.name}</h3>
             <p>{product.price}</p>
-            <a >ver detalles</a>
+            <a>ver detalles</a>
         </article>
     )
 }

@@ -16,6 +16,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
@@ -23,10 +24,12 @@
     "sequelize": "^6.37.8"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^26.5.1",
-    "@vitest/coverage-v8": "^5.0.5",
-    "nodemon": "^3.1.14",
+    "@types/sequelize": "^4.28.20",
+    "@vitest/coverage-v8": "^3.1.4",
+    "nodemon": "^1.19.4",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   }

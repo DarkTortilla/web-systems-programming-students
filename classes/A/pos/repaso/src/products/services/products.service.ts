@@ -1,7 +1,7 @@
 import { client } from "../../conf/axios"
 import type { Product } from "../types/Product";
 
-const getProducts = async (page:number=1, limit:number =10) =>{
+export const getProducts = async () =>{
     try {
        const response = await client.get<Product[]>('/products');
        if (response.status !==200) {
@@ -13,7 +13,7 @@ const getProducts = async (page:number=1, limit:number =10) =>{
         return null;
     }
 }
-const getProductsbyId = async (id:number) =>{
+export const getProductsbyId = async (id:number) =>{
     try {
         const response = await client.get<Product>(`/products/${id}`);
         if (response.status !==200) {
