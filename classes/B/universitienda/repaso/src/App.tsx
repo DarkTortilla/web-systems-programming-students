@@ -1,8 +1,27 @@
+import { useEffect, useState } from "react"
 import Carrousel from "./components/organisms/Carrousel"
 import Footer from "./components/organisms/Footer"
 import Header from "./components/organisms/Header"
+import ProductContainer from "./products/components/ProductContainer"
+import type { Product } from "./products/types/Product"
+import { getProducts } from "./products/services/products.service"
 
 function App() {
+
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const getData = async ()=>{
+    const products = await getProducts();
+    setLoading(false);
+    products!==null ? setProducts(products) : setProducts([]);
+  }
+
+  useEffect(()=>{
+    setLoading(true);
+    getData()
+  }, [])
+
   return (
     <>
     {/* header */}
@@ -18,27 +37,8 @@ function App() {
         {/* carrousel */}
         <Carrousel text="" carrouselItems={[]}/>
         {/* product container */}
-        <section id="productos">
-          <h2>Productos</h2>
-          <div>
-            {/* product card */}
-            <article>
-              <h3>Producto 1</h3>
-              <p>$100</p>
-              <a href="">ver detalle</a>
-            </article>
-            <article>
-              <h3>Producto 2</h3>
-              <p>$200</p>
-              <a href="">ver detalle</a>
-            </article>
-            <article>
-              <h3>Producto 3</h3>
-              <p>$300</p>
-              <a href="">ver detalle</a>
-            </article>
-          </div>
-        </section>
+        {loading? <span>cargando...</span>:  <ProductContainer title="nuevo" products={products}/>}
+       
       </main>
       {/* footer */}
       <Footer/>
