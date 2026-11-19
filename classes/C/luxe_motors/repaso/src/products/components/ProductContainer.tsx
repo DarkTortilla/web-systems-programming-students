@@ -10,7 +10,6 @@ export default function ProductContainer({ title, products }: ProductContainerPr
     return (
         <section id="productos">
             <h2>{title}</h2>
-
             <div>
                 {products.map(product => (
                     <ProductCard product={product} key={product.id}/>

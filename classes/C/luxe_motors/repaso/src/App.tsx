@@ -1,8 +1,26 @@
+import { useEffect, useState } from "react"
 import Carrousel from "./components/organisms/Carrousel"
 import Header from "./components/organisms/Header"
 import ProductContainer from "./products/components/ProductContainer"
+import { getProducts } from "./products/services/products.service"
+import type { Product } from "./products/types/Product"
 
 function App() {
+const [products, setProducts] = useState<Product[]>([]);
+const [loading, setLoading] = useState<boolean>(false);
+
+useEffect(()=>{
+  setLoading(true)
+  getData();
+},[]);
+
+const getData=async()=>{
+
+  const response = await getProducts();
+  setLoading(false);
+  response !==null ? setProducts(response) : setProducts([]);
+}
+
   return (
     <>
       <Header/>
@@ -15,8 +33,8 @@ function App() {
         </section>
 
         <Carrousel/>
-
-      <ProductContainer  />
+      {loading? <span>cargando...</span>:<ProductContainer title="nuevos" products={products} />}
+      
       </main>
 
       <footer>
@@ -27,3 +45,17 @@ function App() {
 }
 
 export default App
+
+
+
+class p {
+  private name: string='';
+
+  setName(name:string){
+    this.name=name;
+  }
+  getName(){
+    return this.name;
+  }
+
+}
