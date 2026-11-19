@@ -8,7 +8,7 @@ type ProductContainerProps = {
 
 export default function ProductContainer({ title, products }: ProductContainerProps) {
     return (
-        <section id="productos">
+        <section id="productos" className="bg-slate-700 border-2">
             <h2>{title}</h2>
             <div>
                 {products.map(product => (

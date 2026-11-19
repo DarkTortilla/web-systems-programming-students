@@ -8,9 +8,9 @@ type ProductContainerProps = {
 
 export default function ProductContainer({ title, products }: ProductContainerProps) {
     return (
-        <section id="productos">
+        <section id="productos" className="">
             <h2>{title}</h2>
-            <div>
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-1">
                 {/* card de producto */}
                 {products.map(p => (
                     <ProductCard product={p}/>

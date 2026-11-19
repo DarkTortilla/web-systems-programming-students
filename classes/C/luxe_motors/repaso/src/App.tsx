@@ -10,12 +10,11 @@ const [products, setProducts] = useState<Product[]>([]);
 const [loading, setLoading] = useState<boolean>(false);
 
 useEffect(()=>{
-  setLoading(true)
+  setLoading(true);
   getData();
 },[]);
 
 const getData=async()=>{
-
   const response = await getProducts();
   setLoading(false);
   response !==null ? setProducts(response) : setProducts([]);
