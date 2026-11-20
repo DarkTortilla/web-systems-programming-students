@@ -10,9 +10,9 @@ function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const getData = async () => {
 
-    const products = await getProducts();
+    const response = await getProducts({});
     setLoading(false);
-    products !== null ? setProducts(products) : setProducts([]);
+    response !== null ? setProducts(response.data) : setProducts([]);
   }
   useEffect(() => {
     setLoading(true);

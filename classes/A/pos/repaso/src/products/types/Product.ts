@@ -9,3 +9,10 @@ export type Product = {
     createdAt: string,
     updatedAt: string
 }
+
+export type PaginationProducts ={
+    data: Product[],
+    limit: number,
+    page:number,
+    count: number;
+}

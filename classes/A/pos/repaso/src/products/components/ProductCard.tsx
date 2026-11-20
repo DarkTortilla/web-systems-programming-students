@@ -6,12 +6,12 @@ type ProductCardProps = {
 
 export default function ProductCard({ product }: ProductCardProps) {
     return (
-        <article className="flex flex-col justify-center border border-b-gray-200 h-32">
-            <div >
+        <article className="flex flex-col justify-center h-32 border border-slate-400 rounded-2xl">
+            <div className="text-center">
                 <h3>{product.name}</h3>
                 <p>{product.price}</p>
             </div>
-            <a className="bg-gray-300 text-slate-800 p-2 w-4/5 mx-auto hover:bg-gray-500 cursor-pointer">ver detalles</a>
-        </article>
+            <a className="p-2 w-fit mx-auto text-center cursor-pointer bg-slate-600 text-white rounded-xl hover:bg-slate-800">ver detalles</a>
+        </article> 
     )
 }
