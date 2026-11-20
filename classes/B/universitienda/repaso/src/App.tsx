@@ -20,7 +20,7 @@ function App() {
   useEffect(()=>{
     setLoading(true);
     getData()
-  }, [])
+  }, []);
 
   return (
     <>

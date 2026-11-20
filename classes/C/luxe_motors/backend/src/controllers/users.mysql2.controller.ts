@@ -29,7 +29,7 @@ export class UserController {
     const userResponse = { ...user, password: "" };
     res.json(userResponse);
   }
-
+ //ORM
   getAllUsers(_req: Request, res: Response) {
     const query = "select * from users";
     pool

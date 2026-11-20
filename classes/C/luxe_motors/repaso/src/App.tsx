@@ -31,11 +31,9 @@ const getData=async()=>{
           <a href="#productos">Ver productos</a>
         </section>
 
-        <Carrousel/>
-      {loading? <span>cargando...</span>:<ProductContainer title="nuevos" products={products} />}
-      
+      <Carrousel/>
+      {loading? <span className="animate-spin"></span>:<ProductContainer title="nuevos" products={products} />}
       </main>
-
       <footer>
         <p>© Tienda</p>
       </footer>

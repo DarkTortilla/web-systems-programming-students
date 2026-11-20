@@ -4,6 +4,8 @@ import { Product } from "../models/index.ts";
 export class ProductController {
   public async getProducts(_req:Request, res: Response) {
     try {
+
+      // const [products] = await db.query('select * from products')
       const products = await Product.findAll( );
       res.status(200).json(products);
     } catch (error) {
