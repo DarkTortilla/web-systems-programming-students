@@ -1,9 +1,9 @@
 import { client } from "../../conf/axios";
-import type { PayloadProduct, Product } from "../types/Product";
+import type { PayloadProduct, Product, ProductList } from "../types/Product";
 
-export const getProducts = async () => {
+export const getProducts = async (page:number=1, limit: number=10) => {
   try {
-    const response = await client.get<Product[]>("/products");
+    const response = await client.get<ProductList>("/products", {params:{limit, page}});
 
     if (response.status === 200) {
       return response.data;

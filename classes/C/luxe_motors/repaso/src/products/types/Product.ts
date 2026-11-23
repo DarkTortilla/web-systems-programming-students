@@ -1,3 +1,4 @@
+
 export type Product = {
     id: number,
     name: string,
@@ -9,6 +10,13 @@ export type Product = {
     createdAt: string,
     updatedAt: string
 }
+
+export type ProductList ={
+    data:Product[],
+    limit:number,
+    page:number,
+    count:number
+} 
 
 export type PayloadProduct = Omit<Product, 'id'>;
 

@@ -17,7 +17,7 @@ useEffect(()=>{
 const getData=async()=>{
   const response = await getProducts();
   setLoading(false);
-  response !==null ? setProducts(response) : setProducts([]);
+  response !==null ? setProducts(response.data) : setProducts([]);
 }
 
   return (
