@@ -2,10 +2,19 @@ import  type { Request, Response } from "express";
 import { Product } from "../models/index.ts";
 
 export class ProductController {
-  public async getProducts(_req: Request, res: Response) {
+  public async getProducts(req: Request, res: Response) {
     try {
-      const products = await Product.findAll( );
-      res.status(200).json(products);
+      const {page=1, limit=10} = req.query;
+      const offset = (Number(page)-1)*Number(limit);
+      const products = await Product.findAll({limit: Number(limit), offset});
+      const count = await Product.count();
+
+      res.status(200).json({
+        data: products,
+        page: +page,
+        limit:+limit,
+        count
+      });
     } catch (error) {
       res.status(500).json({ message: "internal server error" });
     }
