@@ -12,6 +12,7 @@ interface IUser extends Model {
   age: number;
   role: "admin" | "costumer";
   isActive: boolean;
+  refreshToken:string |null
 }
 
 const User = sequelize.define<IUser>(
@@ -51,6 +52,10 @@ const User = sequelize.define<IUser>(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    refreshToken:{
+      type: DataTypes.STRING,
+      defaultValue: null
+    }
   },
   { timestamps: true },
 );
