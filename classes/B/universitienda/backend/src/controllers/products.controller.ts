@@ -4,15 +4,16 @@ import { Product } from "../models/index.ts";
 export class ProductController {
   public async getProducts(req: Request, res: Response) {
     try {
-      const {page=1, limit=10} = req.query;
-      const offset = (Number(page)-1)*Number(limit);
-      const products = await Product.findAll({limit: Number(limit), offset});
+      const page = Number(req.query.page ?? 1);
+      const limit = Number(req.query.limit ?? 10);
+      const offset = (page-1)*limit;
+      const products = await Product.findAll({limit, offset});
       const count = await Product.count();
 
       res.status(200).json({
         data: products,
-        page: +page,
-        limit:+limit,
+        page,
+        limit,
         count
       });
     } catch (error) {

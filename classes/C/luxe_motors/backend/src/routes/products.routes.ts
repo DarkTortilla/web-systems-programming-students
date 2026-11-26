@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { ProductController } from "../controllers/products.controller.ts";
+import { paginationValidator } from "../validators/pagination.ts";
+import { validate } from "../middlewares/validateData.ts";
 
 
 export class ProductRoutes {
@@ -7,7 +9,7 @@ export class ProductRoutes {
         const router = Router();
         const productController = new ProductController();
 
-        router.get('/', productController.getProducts);
+        router.get('/', paginationValidator, validate, productController.getProducts);
         router.get('/:id', productController.getProductById);
         router.post('/', productController.createProduct);
         router.put('/:id', productController.updateProductById);

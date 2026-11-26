@@ -29,7 +29,7 @@ export class SequelizeConnection {
 
   public async connect(): Promise<void> {
     await this.sequelize.authenticate();
-    await this.sequelize.sync();
+    await this.sequelize.sync({});
   }
 
   public async disconnect(): Promise<void> {

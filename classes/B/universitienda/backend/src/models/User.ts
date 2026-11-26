@@ -3,7 +3,7 @@ import sequelizeConnection from "../conf/sequelize.connection.ts";
 
 const sequelize = sequelizeConnection.getSequelize();
 
-interface IUser extends Model {
+export interface IUser extends Model {
   id: number;
   name: string;
   lastName: string;

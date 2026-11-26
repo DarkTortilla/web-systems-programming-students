@@ -10,8 +10,8 @@ export class ProductController {
       // headers: metadatos, 
       // query: condiciones ?name=pc&minPrice=500&maxPrice=1000
 
-      const limit = Number(req.query.limit) || 10;
-      const page = Number(req.query.page) || 1;
+      const limit = Number(req.query.limit ?? 10);
+      const page = Number(req.query.page ?? 1);
       
       const {condition,maxPrice, minPrice,brand} = req.query;
 

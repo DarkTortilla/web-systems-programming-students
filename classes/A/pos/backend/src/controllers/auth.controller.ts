@@ -26,6 +26,7 @@ export class AuthController{
             
             res.status(201).json({message:'user created'});
         } catch (error) {
+            console.log('error:', error)
             res.status(500).json({message:'internal server error'})
         }
     }
@@ -51,7 +52,7 @@ export class AuthController{
             );
 
             const refreshToken = jwt.sign(
-                {user:user.id, agent: req.headers["user-agent"]},
+                {userId:user.id, agent: req.headers["user-agent"]},
                 refreshSecret,
                 {expiresIn:"72h"}
             )

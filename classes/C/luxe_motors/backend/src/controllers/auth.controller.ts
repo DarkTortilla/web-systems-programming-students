@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import User from "../models/User.ts";
 import { comparePassword, hashPassword } from "../utils/password.util.ts";
-
+import jwt from 'jsonwebtoken';
 export class AuthController {
   constructor() {}
 
@@ -41,6 +41,23 @@ export class AuthController {
         if (!match) {
             return res.status(401).json({message: 'invalid credentials'});
         }
+        if(!user.isActive){
+          return res.status(403).json({message:'your account is inactive'});
+        }
+        const token = jwt.sign(
+          {userId:user.id, name:user.name, lastName:user.lastName},
+          "luMJOVpHYQsbzxLGfcIoCTkqdvaeSNhBDgEKmWyjrUAZwXFinRPt",
+          {expiresIn:'48h'}
+        );
+        const refreshToken = jwt.sign(
+          {userId:user.id, agent: req.headers["user-agent"]},
+          "lcEsfVUpbIDXgjnGPBiKHvyZSMkNTFRALqtauYzwQorCWxeJOdhm",
+          {expiresIn:'14d'}
+        );
+
+        user.refreshToken = refreshToken;
+
+        res.status(200).json({token })
         
 
     } catch (error) {
